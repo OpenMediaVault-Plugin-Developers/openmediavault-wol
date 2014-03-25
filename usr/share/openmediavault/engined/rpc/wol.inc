@@ -179,8 +179,8 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         // Modify result data
-        $object['standby-hour']   = intval($object['standby-hour']);
-        $object['standby-minute'] = intval($object['standby-minute']);
+        $object['standbyhour']   = intval($object['standbyhour']);
+        $object['standbyminute'] = intval($object['standbyminute']);
 
         // Remove useless fields from the result object.
         unset($object['systems']);
@@ -198,9 +198,9 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         $this->validateMethodParams($params, '{
             "type"       : "object",
             "properties" : {
-                "mode"           : { "type" : "string" },
-                "standby-hour"   : { "type" : "integer" },
-                "standby-minute" : { "type" : "integer" }
+                "mode"          : { "type" : "string" },
+                "standbyhour"   : { "type" : "integer" },
+                "standbyminute" : { "type" : "integer" }
             }
         }');
 
@@ -213,8 +213,8 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         // Prepare configuration data.
         $object = array(
             "mode"           => $params['mode'],
-            "standby-hour"   => $params['standby-hour'],
-            "standby-minute" => $params['standby-minute'],
+            "standbyhour"    => $params['standbyhour'],
+            "standbyminute"  => $params['standbyminute'],
             "systems"        => isset($oldObject['systems']) ? $oldObject['systems'] : array()
         );
 
@@ -312,16 +312,20 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
 
-        // Get the configuration object.
-        $xpath = sprintf("//services/wol");
-        $object = $xmlConfig->get($xpath);
-        if(is_null($object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, '{
+            "type"       : "object",
+            "properties" : {
+                "mode"          : { "type" : "string" },
+                "standbyhour"   : { "type" : "integer" },
+                "standbyminute" : { "type" : "integer" }
+            }
+        }');
 
-        $hour = intval($object['standby-hour']);
-        $min = intval($object['standby-minute']);
+        $hour = intval($params['standbyhour']);
+        $min = intval($params['standbyminute']);
         $time = strtotime($hour.":".$min);
-        $mode = $object['mode'];
+        $mode = $params['mode'];
 
         $cmd = "/usr/sbin/rtcwake -a -t $time -m $mode";
 

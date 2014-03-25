@@ -80,7 +80,7 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
                 width      : 200,
                 items      : [{
                     xtype         : "combo",
-                    name          : "standby-hour",
+                    name          : "standbyhour",
                     queryMode     : "local",
                     store         : Ext.Array.range(0, 23),
                     allowBlank    : false,
@@ -94,7 +94,7 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
                     value : ":"
                 },{
                     xtype         : "combo",
-                    name          : "standby-minute",
+                    name          : "standbyminute",
                     queryMode     : "local",
                     store         : Ext.Array.range(0, 59),
                     allowBlank    : false,
@@ -128,9 +128,9 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
                                     service : "Wol",
                                     method  : "doRtcwake",
                                     params  : {
-                                        standby-hour   : me.getForm().findField("standby-hour").getValue(),
-                                        standby-minute : me.getForm().findField("standby-minute").getValue(),
-                                        mode           : me.getForm().findField("mode").getValue()
+                                        standbyhour   : me.getForm().findField("standbyhour").getValue(),
+                                        standbyminute : me.getForm().findField("standbyminute").getValue(),
+                                        mode          : me.getForm().findField("mode").getValue()
                                     }
                                 },
                                 success : function(id, success, response) {

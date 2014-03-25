@@ -33,12 +33,12 @@ case "$1" in
             omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}" ""
         fi
 
-        if ! omv_config_exists "${SERVICE_XPATH}/standby-hour"; then
-            omv_config_add_element "${SERVICE_XPATH}" "standby-hour" "0"
+        if ! omv_config_exists "${SERVICE_XPATH}/standbyhour"; then
+            omv_config_add_element "${SERVICE_XPATH}" "standbyhour" "0"
         fi
 
-        if ! omv_config_exists "${SERVICE_XPATH}/standby-minute"; then
-            omv_config_add_element "${SERVICE_XPATH}" "standby-minute" "0"
+        if ! omv_config_exists "${SERVICE_XPATH}/standbyminute"; then
+            omv_config_add_element "${SERVICE_XPATH}" "standbyminute" "0"
         fi
 
         if ! omv_config_exists "${SERVICE_XPATH}/mode"; then
