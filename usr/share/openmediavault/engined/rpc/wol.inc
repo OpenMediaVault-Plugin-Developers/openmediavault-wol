@@ -41,8 +41,11 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         $this->registerMethod("getSystem");
         $this->registerMethod("setSystem");
         $this->registerMethod("deleteSystem");
+        $this->registerMethod("getRtcwake");
+        $this->registerMethod("setRtcwake");
         $this->registerMethod("doSend");
         $this->registerMethod("doScan");
+        $this->registerMethod("doRtcwake");
     }
 
     public function getSystems($params, $context) {
@@ -62,7 +65,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         }');
 
         // Get configuration data.
-        $xpath = "//services/wol/system";
+        $xpath = "//services/wol/systems/system";
         $objects = $xmlConfig->getList($xpath);
         if(is_null($objects))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
@@ -87,11 +90,10 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         }');
 
           // Get the configuration object.
-        $xpath = sprintf("//services/wol/system[uuid='%s']", $params['uuid']);
+        $xpath = sprintf("//services/wol/systems/system[uuid='%s']", $params['uuid']);
         $object = $xmlConfig->get($xpath);
-        if(is_null($object)) {
+        if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        }
 
         return $object;
     }
@@ -125,10 +127,10 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         $success = FALSE;
         if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
             // Append object to configuration.
-            $success = $xmlConfig->set("//services/wol", array("system" => $object));
+            $success = $xmlConfig->set("//services/wol/systems", array("system" => $object));
         } else {
             // Update existing configuration object.
-            $success = $xmlConfig->replace("//services/wol/system[uuid='{$params['uuid']}']", $object);
+            $success = $xmlConfig->replace("//services/wol/systems/system[uuid='{$params['uuid']}']", $object);
         }
         if(FALSE === $success)
             throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
@@ -137,7 +139,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         $dispatcher = &OMVNotifyDispatcher::getInstance();
         $dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
             OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.wol.system", $object);
+            "org.openmediavault.services.wol.systems.system", $object);
 
         // Return the configuration object.
         return $object;
@@ -164,6 +166,68 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
             "org.openmediavault.services.wol.system");
     }
 
+    public function getRtcwake($params, $context) {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array("role" => OMV_ROLE_ADMINISTRATOR));
+
+        // Get the configuration object.
+        $xpath = sprintf("//services/wol");
+        $object = $xmlConfig->get($xpath);
+        if(is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
+        // Modify result data
+        $object['standby-hour']   = intval($object['standby-hour']);
+        $object['standby-minute'] = intval($object['standby-minute']);
+
+        // Remove useless fields from the result object.
+        unset($object['systems']);
+
+        return $object;
+    }
+
+    public function setRtcwake($params, $context) {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, '{
+            "type"       : "object",
+            "properties" : {
+                "mode"           : { "type" : "string" },
+                "standby-hour"   : { "type" : "integer" },
+                "standby-minute" : { "type" : "integer" }
+            }
+        }');
+
+        // Get existing configuration object
+        $xpath = "//services/wol";
+        $oldObject = $xmlConfig->get($xpath);
+        if (is_null($oldObject))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
+        // Prepare configuration data.
+        $object = array(
+            "mode"           => $params['mode'],
+            "standby-hour"   => $params['standby-hour'],
+            "standby-minute" => $params['standby-minute'],
+            "systems"        => isset($oldObject['systems']) ? $oldObject['systems'] : array()
+        );
+
+        // Set configuration object
+        if (FALSE === $xmlConfig->replace($xpath, $object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+
+        // Notify configuration changes.
+        $dispatcher = &OMVNotifyDispatcher::getInstance();
+        $dispatcher->notify(OMV_NOTIFY_MODIFY,
+            "org.openmediavault.services.wol", $object);
+    }
+
     public function doSend($params, $context) {
         global $xmlConfig;
 
@@ -179,7 +243,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         }');
 
         // Get the configuration object.
-        $xpath = sprintf("//services/wol/system[uuid='%s']", $params['uuid']);
+        $xpath = sprintf("//services/wol/systems/system[uuid='%s']", $params['uuid']);
         $object = $xmlConfig->get($xpath);
         if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
@@ -230,7 +294,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
 
             // Set the configuration data.
             $success = FALSE;
-            $success = $xmlConfig->set("//services/wol", array("system" => $object));
+            $success = $xmlConfig->set("//services/wol/systems", array("system" => $object));
 
             if(FALSE === $success)
                 throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
@@ -239,7 +303,30 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract {
         // Notify configuration changes.
         $dispatcher = &OMVNotifyDispatcher::getInstance();
         $dispatcher->notify(OMV_NOTIFY_CREATE,
-            "org.openmediavault.services.wol.system", $object);
+            "org.openmediavault.services.wol.systems.system", $object);
+    }
+
+    public function doRtcwake($params, $context) {
+        global $xmlConfig;
+
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+
+        // Get the configuration object.
+        $xpath = sprintf("//services/wol");
+        $object = $xmlConfig->get($xpath);
+        if(is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
+        $hour = intval($object['standby-hour']);
+        $min = intval($object['standby-minute']);
+        $time = strtotime($hour.":".$min);
+        $mode = $object['mode'];
+
+        $cmd = "/usr/sbin/rtcwake -a -t $time -m $mode";
+
+        if(0 !== $this->exec($cmd, $output))
+            throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, implode("\n", $output));
     }
 }
 

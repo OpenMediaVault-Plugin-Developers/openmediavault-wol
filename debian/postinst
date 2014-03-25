@@ -26,11 +26,24 @@ set -e
 
 case "$1" in
     configure)
-        if ! omv_config_exists "/config/services/wol"; then
-            echo "Initialize configuration"
-            omv_config_add_element "/config/services" "wol"
+        SERVICE_XPATH_NAME="wol"
+        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+
+        if ! omv_config_exists "${SERVICE_XPATH}/standby-hour"; then
+            omv_config_add_element "${SERVICE_XPATH}" "standby-hour" "0"
         fi
 
+        if ! omv_config_exists "${SERVICE_XPATH}/standby-minute"; then
+            omv_config_add_element "${SERVICE_XPATH}" "standby-minute" "0"
+        fi
+
+        if ! omv_config_exists "${SERVICE_XPATH}/mode"; then
+            omv_config_add_element "${SERVICE_XPATH}" "mode" "standby"
+        fi
+
+        if ! omv_config_exists "${SERVICE_XPATH}/systems"; then
+            omv_config_add_element "${SERVICE_XPATH}" "systems" ""
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
