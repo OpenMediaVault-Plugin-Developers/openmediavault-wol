@@ -153,7 +153,7 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
 
 OMV.WorkspaceManager.registerPanel({
     id        : "rtcwake",
-    path      : "/service/rtcwake",
+    path      : "/service/wol",
     text      : _("Rtcwake"),
     position  : 20,
     className : "OMV.module.admin.service.wol.Rtcwake"
