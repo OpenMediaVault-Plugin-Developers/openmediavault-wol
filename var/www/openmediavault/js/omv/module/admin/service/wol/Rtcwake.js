@@ -63,8 +63,8 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
                         [ "mem", _("Suspend-to-RAM - ACPI state S3") ],
                         [ "disk", _("Suspend-to-Disk - ACPI state S4") ],
                         [ "off", _("Poweroff - ACPI state S5") ],
-                        [ "no", _("No - Set RTC wakeup time only.") ],
-                        [ "on", _("On - Useful for debugging.") ]
+                        [ "no", _("No - Don't suspend. Sets RTC wakeup time only.") ],
+                        [ "on", _("On - Don't suspend but read RTC device until alarm time appears. This mode is useful for debugging.") ]
                     ]
                 }),
                 displayField  : "text",
@@ -109,45 +109,42 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
                 name    : "standy",
                 text    : _("Standby"),
                 scope   : this,
-                handler : Ext.Function.bind(me.onStandyButton, me, [ me ]),
-                margin  : "5 0 5 0"
+                margin  : "5 0 5 0",
+                handler : function() {
+                    var me = this;
+                    me.doSubmit();
+                    OMV.MessageBox.show({
+                        title   : _("Confirmation"),
+                        msg     : _("Are you sure you want to enter standy mode?"),
+                        buttons : Ext.Msg.YESNO,
+                        fn      : function(answer) {
+                            if (answer !== "yes")
+                                return;
+
+                            OMV.MessageBox.wait(null, _("Entering standby mode..."));
+                            OMV.Rpc.request({
+                                scope   : me,
+                                rpcData : {
+                                    service : "Wol",
+                                    method  : "doRtcwake",
+                                    params  : {
+                                        standby-hour   : me.getForm().findField("standby-hour").getValue(),
+                                        standby-minute : me.getForm().findField("standby-minute").getValue(),
+                                        mode           : me.getForm().findField("mode").getValue()
+                                    }
+                                },
+                                success : function(id, success, response) {
+                                    me.doReload();
+                                    OMV.MessageBox.hide();
+                                }
+                            });
+                        },
+                        scope : me,
+                        icon  : Ext.Msg.QUESTION
+                    });
+                }
             }]
         }];
-    },
-
-    onStandbyButton : function() {
-        var me = this;
-        me.doSubmit();
-
-        OMV.MessageBox.show({
-            title   : _("Confirmation"),
-            msg     : _("Are you sure you want to enter standy mode?"),
-            buttons : Ext.Msg.YESNO,
-            fn      : function(answer) {
-                if (answer !== "yes")
-                    return;
-
-                OMV.MessageBox.wait(null, _("Entering standby mode..."));
-                OMV.Rpc.request({
-                    scope   : me,
-                    rpcData : {
-                        service : "Wol",
-                        method  : "doRtcwake",
-                        params  : {
-                            standby_hour   : me.getForm().findField("standby_hour").getValue(),
-                            standby_minute : me.getForm().findField("standby_minute").getValue(),
-                            mode           : me.getForm().findField("mode").getValue()
-                        }
-                    },
-                    success : function(id, success, response) {
-                        me.doReload();
-                        OMV.MessageBox.hide();
-                    }
-                });
-            },
-            scope : me,
-            icon  : Ext.Msg.QUESTION
-        });
     }
 });
 
