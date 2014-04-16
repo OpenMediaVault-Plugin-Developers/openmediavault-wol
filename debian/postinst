@@ -48,6 +48,9 @@ case "$1" in
         if ! omv_config_exists "${SERVICE_XPATH}/systems"; then
             omv_config_add_element "${SERVICE_XPATH}" "systems" ""
         fi
+
+        dpkg-trigger update-fixperms
+        dpkg-trigger update-locale
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
