@@ -1,3 +1,10 @@
+openmediavault-wol (1.0) UNRELEASED; urgency=low
+
+  * Simplify grid toolbar 'selectionchange' event processing. (OMV svn r1327)
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 21 Jul 2014 10:31:53 -0500
+
 openmediavault-wol (0.5.1) stable; urgency=low
 
   * Add rtcwake

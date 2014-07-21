@@ -152,15 +152,17 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
     onSelectionChange: function(model, records) {
         var me = this;
         me.callParent(arguments);
-
-        var tbarSendCtrl = me.queryById(me.getId() + "-send");
-        if(records.length <= 0) {
-            tbarSendCtrl.disable();
-        } else if(records.length == 1) {
-            tbarSendCtrl.enable();
-        } else {
-            tbarSendCtrl.disable();
+        // Process additional buttons.
+        var tbarBtnDisabled = {
+            "send" : true
+        };
+        if(records.length == 1) {
+            tbarBtnDisabled["send"] = false;
         }
+        // Update the button controls.
+        Ext.Object.each(tbarBtnDisabled, function(key, value) {
+            this.setToolbarButtonDisabled(key, value);
+        }, me);
     },
 
     onAddButton: function() {
@@ -228,7 +230,7 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
     onSendButton : function() {
         var me = this;
         var record = me.getSelected();
-        
+
         OMV.Rpc.request({
             scope       : me,
             relayErrors : false,
