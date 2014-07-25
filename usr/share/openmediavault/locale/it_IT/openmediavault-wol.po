@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Paolo Velati <paolo.velati@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-07-21 15:36+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-07-21 16:03+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault-wol/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add system"
-msgstr ""
+msgstr "Aggiungi sistema"
 
 msgid "Are you sure you want to enter standy mode?"
 msgstr ""
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Conferma"
 
 msgid "Edit system"
-msgstr ""
+msgstr "Modifica sistema"
 
 msgid "Entering standby mode..."
 msgstr ""
 
 msgid "IP Address"
-msgstr ""
+msgstr "Indirizzo IP"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "Indirizzo MAC"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
 msgstr ""
@@ -50,22 +51,22 @@ msgid ""
 msgstr ""
 
 msgid "Poweroff - ACPI state S5"
-msgstr ""
+msgstr "Spegni - stato ACPI S5"
 
 msgid "Rtcwake"
-msgstr ""
+msgstr "Rtcwake"
 
 msgid "Scan"
-msgstr ""
+msgstr "Scansione"
 
 msgid "Scanning network for systems to add..."
 msgstr ""
 
 msgid "Send"
-msgstr ""
+msgstr "Invia"
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Standby"
 msgstr ""
@@ -86,7 +87,7 @@ msgid "Suspend-to-RAM - ACPI state S3"
 msgstr ""
 
 msgid "Systems"
-msgstr ""
+msgstr "Sistemi"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"

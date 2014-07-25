@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-07-21 15:36+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-07-22 06:57+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-wol/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add system"
-msgstr ""
+msgstr "Dodaj budzenie"
 
 msgid "Are you sure you want to enter standy mode?"
 msgstr ""
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Potwierdzenie"
 
 msgid "Edit system"
-msgstr ""
+msgstr "Edytuj budzenie"
 
 msgid "Entering standby mode..."
 msgstr ""
 
 msgid "IP Address"
-msgstr ""
+msgstr "Adres IP"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "Adres MAC"
 
 msgid "Name"
-msgstr ""
+msgstr "Nazwa"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
 msgstr ""
@@ -56,16 +57,16 @@ msgid "Rtcwake"
 msgstr ""
 
 msgid "Scan"
-msgstr ""
+msgstr "Skanuj"
 
 msgid "Scanning network for systems to add..."
-msgstr ""
+msgstr "Skanuję sieć w poszukiwaniu urządzeń do dodania..."
 
 msgid "Send"
-msgstr ""
+msgstr "Wyślij"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid "Standby"
 msgstr ""
@@ -86,7 +87,7 @@ msgid "Suspend-to-RAM - ACPI state S3"
 msgstr ""
 
 msgid "Systems"
-msgstr ""
+msgstr "Wybudzenia"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
