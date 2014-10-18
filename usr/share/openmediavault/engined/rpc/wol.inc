@@ -86,12 +86,12 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         $this->registerMethod("setSystem");
         $this->registerMethod("deleteSystem");
 
-        $this->registerMethod("getRtcwake");
-        $this->registerMethod("setRtcwake");
+        $this->registerMethod("getWake");
+        $this->registerMethod("setWake");
 
         $this->registerMethod("doSend");
         $this->registerMethod("doScan");
-        $this->registerMethod("doRtcwake");
+        $this->registerMethod("doWake");
     }
 
     public function getSystems($params, $context)
@@ -249,7 +249,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         );
     }
 
-    public function getRtcwake($params, $context)
+    public function getWake($params, $context)
     {
         global $xmlConfig;
 
@@ -279,7 +279,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         return $object;
     }
 
-    public function setRtcwake($params, $context)
+    public function setWake($params, $context)
     {
         global $xmlConfig;
 
@@ -446,7 +446,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         );
     }
 
-    public function doRtcwake($params, $context)
+    public function doWake($params, $context)
     {
         global $xmlConfig;
 

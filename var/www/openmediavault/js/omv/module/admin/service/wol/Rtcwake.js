@@ -38,8 +38,8 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
     ],
 
     rpcService      : "Wol",
-    rpcGetMethod    : "getRtcwake",
-    rpcSetMethod    : "setRtcwake",
+    rpcGetMethod    : "getWake",
+    rpcSetMethod    : "setWake",
 
     hideOkButton  : true,
 
@@ -126,7 +126,7 @@ Ext.define("OMV.module.admin.service.wol.Rtcwake", {
                                 scope   : me,
                                 rpcData : {
                                     service : "Wol",
-                                    method  : "doRtcwake",
+                                    method  : "doWake",
                                     params  : {
                                         standbyhour   : me.getForm().findField("standbyhour").getValue(),
                                         standbyminute : me.getForm().findField("standbyminute").getValue(),
