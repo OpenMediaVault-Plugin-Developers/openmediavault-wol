@@ -1,8 +1,9 @@
-openmediavault-wol (1.0.1) UNRELEASED; urgency=low
+openmediavault-wol (1.0.1) stable; urgency=low
 
   * Fix delete bug
+  * Update locales
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 18 Oct 2014 09:30:08 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 18 Oct 2014 09:31:30 -0500
 
 openmediavault-wol (1.0) stable; urgency=low
 
