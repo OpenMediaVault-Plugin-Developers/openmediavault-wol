@@ -1,4 +1,10 @@
-openmediavault-wol (1.0) UNRELEASED; urgency=low
+openmediavault-wol (1.0.1) UNRELEASED; urgency=low
+
+  * Fix delete bug
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 18 Oct 2014 09:30:08 -0500
+
+openmediavault-wol (1.0) stable; urgency=low
 
   * Simplify grid toolbar 'selectionchange' event processing. (OMV svn r1327)
   * Update locales
