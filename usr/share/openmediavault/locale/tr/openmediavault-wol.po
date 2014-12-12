@@ -3,91 +3,90 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-11-14 19:51+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-wol/language/zh_CN/)\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/openmediavault-wol/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Add system"
-msgstr "添加系统"
+msgstr ""
 
 msgid "Are you sure you want to enter standy mode?"
-msgstr "你确定要进入待机模式？"
+msgstr ""
 
 msgid "Confirmation"
-msgstr "确认"
+msgstr ""
 
 msgid "Edit system"
-msgstr "编辑系统"
+msgstr ""
 
 msgid "Entering standby mode..."
-msgstr "进入待机模式..."
+msgstr ""
 
 msgid "IP Address"
-msgstr "IP地址"
+msgstr ""
 
 msgid "MAC Address"
-msgstr "MAC地址"
+msgstr ""
 
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
-msgstr "No - 不挂起，仅设置RTC唤醒时间。"
+msgstr ""
 
 msgid ""
 "On - Don't suspend but read RTC device until alarm time appears. This mode "
 "is useful for debugging."
-msgstr "On - 不挂起但读取RTC设备直到预设时间，这个模式在调试时有用。"
+msgstr ""
 
 msgid "Poweroff - ACPI state S5"
-msgstr "关机 - ACPI状态 S5"
+msgstr ""
 
 msgid "Rtcwake"
-msgstr "Rtcwake"
+msgstr ""
 
 msgid "Scan"
-msgstr "扫描"
+msgstr ""
 
 msgid "Scanning network for systems to add..."
-msgstr "扫描网络准备添加 ..."
+msgstr ""
 
 msgid "Send"
-msgstr "发送"
+msgstr ""
 
 msgid "Settings"
-msgstr "设置"
+msgstr ""
 
 msgid "Standby"
-msgstr "待机"
+msgstr ""
 
 msgid "Standby - ACPI state S1"
-msgstr "待机 - ACPI状态 S1"
+msgstr ""
 
 msgid "Standby Mode"
-msgstr "待机模式"
+msgstr ""
 
 msgid "Standby Time"
-msgstr "待机时间"
+msgstr ""
 
 msgid "Suspend-to-Disk - ACPI state S4"
-msgstr "挂起到硬盘 - ACPI状态 S4"
+msgstr ""
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr "挂起到内存 - ACPI状态 S3"
+msgstr ""
 
 msgid "Systems"
-msgstr "系统"
+msgstr ""
 
 msgid "WOL"
-msgstr "WOL"
+msgstr ""

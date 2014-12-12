@@ -3,91 +3,91 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ettore Atalan <atalanttore@googlemail.com>, 2014
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-11-15 01:46+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/openmediavault-wol/language/de/)\n"
+"PO-Revision-Date: 2014-12-08 12:52+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault-wol/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add system"
-msgstr "System hinzufügen"
+msgstr "Engadir un sistema"
 
 msgid "Are you sure you want to enter standy mode?"
-msgstr ""
+msgstr "Confirma que quere entrar en modo de espera?"
 
 msgid "Confirmation"
-msgstr "Bestätigung"
+msgstr "Confirmación"
 
 msgid "Edit system"
-msgstr "System bearbeiten"
+msgstr "Editar o sistema"
 
 msgid "Entering standby mode..."
-msgstr ""
+msgstr "Entrando en modo de espera..."
 
 msgid "IP Address"
-msgstr "IP-Adresse"
+msgstr "Enderezo IP"
 
 msgid "MAC Address"
-msgstr "MAC-Adresse"
+msgstr "Enderezo MAC"
 
 msgid "Name"
-msgstr "Name"
+msgstr "Nome"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
-msgstr ""
+msgstr "Non - Non poñer en suspensión. Establecer só o tempo de activación RTC."
 
 msgid ""
 "On - Don't suspend but read RTC device until alarm time appears. This mode "
 "is useful for debugging."
-msgstr ""
+msgstr "Acender - Non poñer en suspensión mais ler o dispositivo RTC ata que apareza a hora de alarma. Este modo é útil para a depuración."
 
 msgid "Poweroff - ACPI state S5"
-msgstr "Ausgeschaltet - ACPI-Status S5"
+msgstr "Apagar - Estado ACPI S5"
 
 msgid "Rtcwake"
-msgstr ""
+msgstr "ActivaciónRTC"
 
 msgid "Scan"
-msgstr "Abfragen"
+msgstr "Examinar"
 
 msgid "Scanning network for systems to add..."
-msgstr ""
+msgstr "Examinado a rede na busca de sistemas que engadir..."
 
 msgid "Send"
-msgstr "Senden"
+msgstr "Enviar"
 
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Axustes"
 
 msgid "Standby"
-msgstr "Bereitschaft"
+msgstr "Espera"
 
 msgid "Standby - ACPI state S1"
-msgstr "Bereitschaft - ACPI-Status S1"
+msgstr "Espera - Estado ACPI S1"
 
 msgid "Standby Mode"
-msgstr "Bereitschaftsmodus"
+msgstr "Modo de espera"
 
 msgid "Standby Time"
-msgstr "Bereitschaftszeit"
+msgstr "Tempo de espera"
 
 msgid "Suspend-to-Disk - ACPI state S4"
-msgstr ""
+msgstr "Suspender a disco - Estado ACPI S4"
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr ""
+msgstr "Suspender a RAM - Estado ACPI S3"
 
 msgid "Systems"
-msgstr "Systeme"
+msgstr "Sistemas"
 
 msgid "WOL"
 msgstr "WOL"
