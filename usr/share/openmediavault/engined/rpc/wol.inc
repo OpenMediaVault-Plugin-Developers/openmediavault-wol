@@ -367,13 +367,13 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         $ip = $object['ip'];
 
         if ( strlen($mac) == 17 )
-            $cmd = sprintf("%s -b %s 2>&1", $this->getEtherwake(), $mac);
+            $cmd = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $mac);
         elseif ( strlen($ip) > 7 )
-            $cmd = sprintf("%s -b %s 2>&1", $this->getEtherwake(), $ip);
+            $cmd = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $ip);
         else
             $cmd = false;
 
-        if ( $cmd === false )
+        if ( $cmd !== false )
         {
             if (0 !== $this->exec($cmd, $output))
             {

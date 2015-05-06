@@ -1,3 +1,9 @@
+openmediavault-wol (1.0.3) stable; urgency=low
+
+  * Fix etherwake command
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 06 May 2015 07:04:35 -0500
+
 openmediavault-wol (1.0.2) stable; urgency=low
 
   * Add custom debian/control field XB-Plugin-Section
