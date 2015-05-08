@@ -79,6 +79,11 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         return "/usr/sbin/etherwake";
     }
 
+    private function getWakeonlan()
+    {
+        return "/usr/bin/wakeonlan";
+    }
+
     public function initialize()
     {
         $this->registerMethod("getSystems");
@@ -366,16 +371,32 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         $mac = $object['mac'];
         $ip = $object['ip'];
 
-        if ( strlen($mac) == 17 )
-            $cmd = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $mac);
-        elseif ( strlen($ip) > 7 )
-            $cmd = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $ip);
-        else
-            $cmd = false;
+        if ( strlen($mac) == 17 ) {
+            $cmd  = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $mac);
+            $cmd2 = sprintf("export LANG=C; %s %s 2>&1", $this->getWakeonlan(), $mac);
+        } elseif ( strlen($ip) > 7 ) {
+            $cmd  = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $ip);
+            $cmd2 = false;
+        } else {
+            $cmd  = false;
+            $cmd2 = false;
+        }
 
-        if ( $cmd !== false )
+        if ( $cmd !== false ) 
         {
             if (0 !== $this->exec($cmd, $output))
+            {
+                throw new OMVException(
+                    OMVErrorMsg::E_EXEC_FAILED,
+                    $cmd,
+                    implode("\n", $output)
+                );
+            }
+        }
+
+        if ( $cmd2 !== false )
+        {
+            if (0 !== $this->exec($cmd2, $output))
             {
                 throw new OMVException(
                     OMVErrorMsg::E_EXEC_FAILED,

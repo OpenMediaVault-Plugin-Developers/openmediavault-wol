@@ -9,8 +9,8 @@ Homepage: http://omv-extras.org/
 
 Package: openmediavault-wol
 Architecture: all
-Depends: ${misc:Depends}, nast, etherwake, util-linux, 
- openmediavault (>= 1.0.7)
+Depends: ${misc:Depends}, nast, etherwake, util-linux, wakeonlan,
+ openmediavault (>= 1.17)
 Description: OpenMediaVault WOL plugin
  Plugin to send wake-on-lan magic packets and put system in standby
- to wake at a specified time using rtcwake.
+ to wake at a specified time using rtcwake and wakeonlan.
