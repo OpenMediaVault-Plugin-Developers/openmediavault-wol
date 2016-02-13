@@ -4,7 +4,7 @@
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright Copyright (c) 2009-2013 Volker Theile
-# @copyright Copyright (c) 2014-2015 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2014-2016 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,21 +31,9 @@ case "$1" in
 
         if ! omv_config_exists "${SERVICE_XPATH}"; then
             omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}" ""
-        fi
-
-        if ! omv_config_exists "${SERVICE_XPATH}/standbyhour"; then
             omv_config_add_element "${SERVICE_XPATH}" "standbyhour" "0"
-        fi
-
-        if ! omv_config_exists "${SERVICE_XPATH}/standbyminute"; then
             omv_config_add_element "${SERVICE_XPATH}" "standbyminute" "0"
-        fi
-
-        if ! omv_config_exists "${SERVICE_XPATH}/mode"; then
             omv_config_add_element "${SERVICE_XPATH}" "mode" "standby"
-        fi
-
-        if ! omv_config_exists "${SERVICE_XPATH}/systems"; then
             omv_config_add_element "${SERVICE_XPATH}" "systems" ""
         fi
 

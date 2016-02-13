@@ -3,7 +3,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2015 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2016 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
 
     private function getXPath()
     {
-        return sprintf( "//services/%s", $this->getPluginName() );
+        return sprintf( "/config/services/%s", $this->getPluginName() );
     }
 
     private function getXPathSystems()
@@ -106,7 +106,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -122,8 +122,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
 
         // Get configuration data.
         $objects = $xmlConfig->getList( $this->getXPathSystem() );
-        if (is_null($objects))
-        {
+        if (is_null($objects)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $this->getXPathSystem()
@@ -142,7 +141,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -156,8 +155,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Get the configuration object.
         $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
         $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
+        if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $xPath
@@ -174,7 +172,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -189,28 +187,24 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         }');
 
         // Prepare configuration data.
-        $object = array(
+        $object = ]
             "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
             "name" => $params['name'],
             "mac"  => $params['mac'],
             "ip"   => $params['ip']
-        );
+        ];
 
         // Set the configuration data.
         $success = FALSE;
-        if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED'])
-        {
+        if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
             // Append object to configuration.
-            $success = $xmlConfig->set($this->getXPathSystems(), array("system" => $object));
-        }
-        else
-        {
+            $success = $xmlConfig->set($this->getXPathSystems(), [ "system" => $object ]);
+        } else {
             // Update existing configuration object.
             $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
             $success = $xmlConfig->replace($xPath, $object);
         }
-        if (FALSE === $success)
-        {
+        if (FALSE === $success) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
             );
@@ -234,7 +228,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -261,13 +255,12 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Get the configuration object.
         $object = $xmlConfig->get( $this->getXPath() );
-        if (is_null($object))
-        {
+        if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $this->getXPath()
@@ -291,7 +284,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -306,8 +299,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
 
         // Get existing configuration object
         $oldObject = $xmlConfig->get( $this->getXPath() );
-        if (is_null($oldObject))
-        {
+        if (is_null($oldObject)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $this->getXPath()
@@ -315,16 +307,15 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         }
 
         // Prepare configuration data.
-        $object = array(
+        $object = [
             "mode"          => $params['mode'],
             "standbyhour"   => $params['standbyhour'],
             "standbyminute" => $params['standbyminute'],
-            "systems"       => isset($oldObject['systems']) ? $oldObject['systems'] : array()
-        );
+            "systems"       => isset($oldObject['systems']) ? $oldObject['systems'] : []
+        ];
 
         // Set configuration object
-        if (FALSE === $xmlConfig->replace($this->getXPath(), $object))
-        {
+        if (FALSE === $xmlConfig->replace($this->getXPath(), $object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
             );
@@ -346,7 +337,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -360,8 +351,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Get the configuration object.
         $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
         $object = $xmlConfig->get($xPath);
-        if (is_null($object))
-        {
+        if (is_null($object)) {
             throw new OMVException(
                 OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $xPath
@@ -382,10 +372,8 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
             $cmd2 = false;
         }
 
-        if ( $cmd !== false ) 
-        {
-            if (0 !== $this->exec($cmd, $output))
-            {
+        if ( $cmd !== false ) {
+            if (0 !== $this->exec($cmd, $output)) {
                 throw new OMVException(
                     OMVErrorMsg::E_EXEC_FAILED,
                     $cmd,
@@ -394,10 +382,8 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
             }
         }
 
-        if ( $cmd2 !== false )
-        {
-            if (0 !== $this->exec($cmd2, $output))
-            {
+        if ( $cmd2 !== false ) {
+            if (0 !== $this->exec($cmd2, $output)) {
                 throw new OMVException(
                     OMVErrorMsg::E_EXEC_FAILED,
                     $cmd,
@@ -414,13 +400,11 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         $cmd = sprintf("%s -m", $this->getNast());
-
-        if (0 !== $this->exec($cmd, $output))
-        {
+        if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
                 OMVErrorMsg::E_EXEC_FAILED,
                 $cmd,
@@ -428,8 +412,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
             );
         }
 
-        foreach ($output as $line)
-        {
+        foreach ($output as $line) {
             if( substr($line,2,1) != ":" )
                 continue;
 
@@ -439,19 +422,18 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
                 $pieces[2] = "n/a";
 
             // Prepare configuration data.
-            $object = array(
+            $object = [
                 "uuid" => OMVUtil::uuid(),
                 "name" => trim($pieces[2]),
                 "mac"  => trim($pieces[0]),
                 "ip"   => trim($pieces[1])
-            );
+            ];
 
             // Set the configuration data.
             $success = FALSE;
-            $success = $xmlConfig->set($this->getXPathSystems(), array("system" => $object));
+            $success = $xmlConfig->set($this->getXPathSystems(), [ "system" => $object ]);
 
-            if (FALSE === $success)
-            {
+            if (FALSE === $success) {
                 throw new OMVException(
                     OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
                 );
@@ -474,7 +456,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext(
             $context,
-            array( "role" => OMV_ROLE_ADMINISTRATOR )
+            [ "role" => OMV_ROLE_ADMINISTRATOR ]
         );
 
         // Validate the parameters of the RPC service method.
@@ -494,8 +476,7 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
 
         $cmd = sprintf("%s -a -t %s -m %s", $this->getRtcwake(), $time, $mode);
 
-        if (0 !== $this->exec($cmd, $output))
-        {
+        if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
                 OMVErrorMsg::E_EXEC_FAILED,
                 $cmd,
