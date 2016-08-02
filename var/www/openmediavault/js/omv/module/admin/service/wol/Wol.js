@@ -116,7 +116,7 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
                     type    : "rpc",
                     rpcData : {
                         service : "Wol",
-                        method  : "getSystems"
+                        method  : "getSystemList"
                     }
                 }
             })

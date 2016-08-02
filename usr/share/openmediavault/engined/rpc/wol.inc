@@ -18,75 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/rpcservice.inc");
-require_once("openmediavault/notify.inc");
 
-class OMVRpcServiceWol extends OMVRpcServiceAbstract
+class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
 {
-    const SYSTEM = 'system';
-
     public function getName()
     {
         return "wol";
     }
 
-    private function getPluginName()
-    {
-        return strtolower( $this->getName() );
-    }
-
-    private function getXPath()
-    {
-        return sprintf( "/config/services/%s", $this->getPluginName() );
-    }
-
-    private function getXPathSystems()
-    {
-        return sprintf( "%s/%ss", $this->getXPath(), self::SYSTEM );
-    }
-
-    private function getXPathSystem()
-    {
-        return sprintf( "%s/%s", $this->getXPathSystems(), self::SYSTEM );
-    }
-
-    private function getEventMessagePath()
-    {
-        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
-    }
-
-    private function getEventMessagePathSystem()
-    {
-        return sprintf( "%s.%ss.%s", $this->getEventMessagePath(), self::SYSTEM, self::SYSTEM );
-    }
-
-    private function getRtcwake()
-    {
-        return "/usr/sbin/rtcwake";
-    }
-
-    private function getNast()
-    {
-        return "/usr/bin/nast";
-    }
-
-    private function getEtherwake()
-    {
-        return "/usr/sbin/etherwake";
-    }
-
-    private function getWakeonlan()
-    {
-        return "/usr/bin/wakeonlan";
-    }
-
     public function initialize()
     {
-        $this->registerMethod("getSystems");
+        $this->registerMethod("getSystemList");
         $this->registerMethod("getSystem");
         $this->registerMethod("setSystem");
         $this->registerMethod("deleteSystem");
@@ -99,36 +41,15 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
         $this->registerMethod("doWake");
     }
 
-    public function getSystems($params, $context)
+    public function getSystemList($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "start"     : { "type" : "integer" },
-                "limit"     : { '.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].' },
-                "sortfield" : { '.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].' },
-                "sortdir"   : { '.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].' }
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.common.getlist");
         // Get configuration data.
-        $objects = $xmlConfig->getList( $this->getXPathSystem() );
-        if (is_null($objects)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPathSystem()
-            );
-        }
-
+        $db = \OMV\Config\Database::getInstance();
+        $objects = $db->getAssoc("conf.service.wol.system");
         // Filter the result.
         return $this->applyFilter($objects, $params['start'], $params['limit'],
             $params['sortfield'], $params['sortdir']);
@@ -136,356 +57,158 @@ class OMVRpcServiceWol extends OMVRpcServiceAbstract
 
     public function getSystem($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
         // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
-
-        return $object;
+        $db = \OMV\Config\Database::getInstance();
+        return $db->getAssoc("conf.service.wol.system", $params['uuid']);
     }
 
     public function setSystem($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
-                "name" : { "type" : "string" },
-                "mac"  : { "type" : "string", "optional" : true },
-                "ip"   : { "type" : "string", "optional" : true }
-            }
-        }');
-
-        // Prepare configuration data.
-        $object = ]
-            "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
-            "name" => $params['name'],
-            "mac"  => $params['mac'],
-            "ip"   => $params['ip']
-        ];
-
-        // Set the configuration data.
-        $success = FALSE;
-        if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-            // Append object to configuration.
-            $success = $xmlConfig->set($this->getXPathSystems(), [ "system" => $object ]);
-        } else {
-            // Update existing configuration object.
-            $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
-            $success = $xmlConfig->replace($xPath, $object);
+        $this->validateMethodParams($params, "rpc.wol.setsystem");
+        // Prepare the configuration object.
+        $object = new \OMV\Config\ConfigObject("conf.service.wol.system");
+        $object->setAssoc($params);
+        // Set the configuration object.
+        $isNew = $object->isNew();
+        $db = \OMV\Config\Database::getInstance();
+        if (TRUE === $isNew) {
+            // Check uniqueness - name, mac, ip
+            $db->assertIsUnique($object, "name");
+            $db->assertIsUnique($object, "mac");
+            $db->assertIsUnique($object, "ip");
         }
-        if (FALSE === $success) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
-            );
-        }
-
-        // Notify configuration changes.
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(
-            ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePathSystem(),
-            $object);
-
+        $db->set($object);
         // Return the configuration object.
-        return $object;
+        return $object->getAssoc();
     }
 
     public function deleteSystem($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "uuid" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' }
-            }
-        }');
-
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
         // Delete the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
-
-        return $this->deleteConfigObjectByPath(
-            $xPath,
-            $this->getEventMessagePathSystem()
-        );
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.wol.system", $params['uuid']);
+        $db->delete($object);
+        // Return the deleted configuration object.
+        return $object->getAssoc();
     }
 
     public function getWake($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Get the configuration object.
-        $object = $xmlConfig->get( $this->getXPath() );
-        if (is_null($object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        // Modify result data
-        $object['standbyhour']   = intval($object['standbyhour']);
-        $object['standbyminute'] = intval($object['standbyminute']);
-
-        // Remove useless fields from the result object.
-        unset($object['systems']);
-
-        return $object;
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.wol");
+        // Remove useless properties from the object.
+        $object->remove("systems");
+        return $object->getAssoc();
     }
 
     public function setWake($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "mode"          : { "type" : "string" },
-                "standbyhour"   : { "type" : "integer" },
-                "standbyminute" : { "type" : "integer" }
-            }
-        }');
-
-        // Get existing configuration object
-        $oldObject = $xmlConfig->get( $this->getXPath() );
-        if (is_null($oldObject)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        // Prepare configuration data.
-        $object = [
-            "mode"          => $params['mode'],
-            "standbyhour"   => $params['standbyhour'],
-            "standbyminute" => $params['standbyminute'],
-            "systems"       => isset($oldObject['systems']) ? $oldObject['systems'] : []
-        ];
-
-        // Set configuration object
-        if (FALSE === $xmlConfig->replace($this->getXPath(), $object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
-            );
-        }
-
-        // Notify configuration changes.
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(
-            OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePath(),
-            $object
-        );
+        $this->validateMethodParams($params, "rpc.wol.setwake");
+        // Get the existing configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.wol");
+        $object->setAssoc($params);
+        $db->set($object);
+        // Remove useless properties from the object.
+        $object->remove("systems");
+        // Return the configuration object.
+        return $object->getAssoc();
     }
 
     public function doSend($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type":"object",
-            "properties":{
-                "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-            }
-        }');
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
+        // Delete the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.wol.system", $params['uuid']);
 
-        // Get the configuration object.
-        $xPath = sprintf("%s[uuid='%s']", $this->getXPathSystem(), $params['uuid']);
-        $object = $xmlConfig->get($xPath);
-        if (is_null($object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $xPath
-            );
-        }
+        $mac = $object->get('mac');
+        $ip = $object->get('ip');
 
-        $mac = $object['mac'];
-        $ip = $object['ip'];
+        $cmd1 = false;
+        $cmd2 = false;
 
         if ( strlen($mac) == 17 ) {
-            $cmd  = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $mac);
-            $cmd2 = sprintf("export LANG=C; %s %s 2>&1", $this->getWakeonlan(), $mac);
+            $cmd1 = true;
+            $cmd2 = true;
         } elseif ( strlen($ip) > 7 ) {
-            $cmd  = sprintf("export LANG=C; %s %s 2>&1", $this->getEtherwake(), $ip);
-            $cmd2 = false;
-        } else {
-            $cmd  = false;
-            $cmd2 = false;
+            $cmd1 = true;
         }
-
-        if ( $cmd !== false ) {
-            if (0 !== $this->exec($cmd, $output)) {
-                throw new OMVException(
-                    OMVErrorMsg::E_EXEC_FAILED,
-                    $cmd,
-                    implode("\n", $output)
-                );
-            }
+        if ( $cmd1 === true ) {
+            $cmd = new \OMV\System\Process("etherwake", $mac);
+            $cmd->setRedirect2to1(true);
+            $cmd->execute();
         }
-
-        if ( $cmd2 !== false ) {
-            if (0 !== $this->exec($cmd2, $output)) {
-                throw new OMVException(
-                    OMVErrorMsg::E_EXEC_FAILED,
-                    $cmd,
-                    implode("\n", $output)
-                );
-            }
+        if ( $cmd2 === true ) {
+            $cmd = new \OMV\System\Process("wakeonlan", $mac);
+            $cmd->setRedirect2to1(true);
+            $cmd->execute();
         }
     }
 
     public function doScan($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
 
-        $cmd = sprintf("%s -m", $this->getNast());
-        if (0 !== $this->exec($cmd, $output)) {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
-        }
+        $cmd = new \OMV\System\Process("nast", "-m");
+        $cmd->setRedirect2to1();
+        $cmd->execute($output);
 
+		file_put_contents("/tmp/nast_output", $output);
         foreach ($output as $line) {
-            if( substr($line,2,1) != ":" )
+            if( substr($line,2,1) != ":" ) {
                 continue;
-
+            }
             $pieces = explode(" ", str_replace("(", "", str_replace(")", "", $line)));
 
-            if( trim($pieces[2]) == "" )
+            if( trim($pieces[2]) == "" ) {
                 $pieces[2] = "n/a";
-
-            // Prepare configuration data.
-            $object = [
-                "uuid" => OMVUtil::uuid(),
+            }
+            $this->callMethod("setSystem", [
+                "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
                 "name" => trim($pieces[2]),
                 "mac"  => trim($pieces[0]),
                 "ip"   => trim($pieces[1])
-            ];
-
-            // Set the configuration data.
-            $success = FALSE;
-            $success = $xmlConfig->set($this->getXPathSystems(), [ "system" => $object ]);
-
-            if (FALSE === $success) {
-                throw new OMVException(
-                    OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
-                );
-            }
+            ], $context);
         }
-
-        // Notify configuration changes.
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(
-            OMV_NOTIFY_CREATE,
-            $this->getEventMessagePathSystem(),
-            $object
-        );
     }
 
     public function doWake($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext(
-            $context,
-            [ "role" => OMV_ROLE_ADMINISTRATOR ]
-        );
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, '{
-            "type"       : "object",
-            "properties" : {
-                "mode"          : { "type" : "string" },
-                "standbyhour"   : { "type" : "integer" },
-                "standbyminute" : { "type" : "integer" }
-            }
-        }');
+        $this->validateMethodParams($params, "rpc.wol.setwake");
 
         $hour = intval($params['standbyhour']);
         $min = intval($params['standbyminute']);
-        $time = strtotime($hour.":".$min);
+        $time = strtotime(sprintf("%s:%s", $hour, $min));
         $mode = $params['mode'];
 
-        $cmd = sprintf("%s -a -t %s -m %s", $this->getRtcwake(), $time, $mode);
-
-        if (0 !== $this->exec($cmd, $output)) {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
-        }
+        //$cmd = sprintf("%s -a -t %s -m %s", $this->getRtcwake(), $time, $mode);
+        $cmd = new \OMV\System\Process("rtcwake", "-a -t", $time, "-m", $mode);
+        $cmd->setRedirect2to1();
+        $cmd->execute();
     }
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceWol());
