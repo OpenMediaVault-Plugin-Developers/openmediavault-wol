@@ -1,3 +1,9 @@
+openmediavault-wol (3.1) stable; urgency=low
+
+  * update for OMV 3.0.40
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 27 Sep 2016 20:46:17 -0500
+
 openmediavault-wol (3.0) stable; urgency=low
 
   * Update for OMV 3.x
