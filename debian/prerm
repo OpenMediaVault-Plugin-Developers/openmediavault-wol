@@ -25,25 +25,17 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 case "$1" in
-    configure)
-        # Activate package triggers. These triggers are only set during the
-        # package installation.
-        dpkg-trigger update-fixperms
-        dpkg-trigger update-locale
-
-        # Initialize and migrate configuration database.
-        echo "Updating configuration database ..."
-        omv-confdbadm create "conf.service.wol"
-        if [ -n "$2" ]; then
-            omv-confdbadm migrate "conf.service.wol" "${2}"
-        fi
+    purge)
+        # Remove the configuration data
+        echo "Cleaning up configuration database ..."
+        omv-confdbadm delete "conf.service.wol"
     ;;
 
-    abort-upgrade|abort-remove|abort-deconfigure)
+    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
 
     *)
-        echo "postinst called with unknown argument '$1'" >&2
+        echo "prerm called with unknown argument '$1'" >&2
         exit 1
     ;;
 esac

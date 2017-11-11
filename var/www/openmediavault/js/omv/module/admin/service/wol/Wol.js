@@ -77,6 +77,8 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
         "OMV.module.admin.service.wol.System"
     ],
 
+    deviceName : "",
+
     hidePagingToolbar : false,
     autoReload        : false,
     stateful          : true,
@@ -132,6 +134,44 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
         var items = me.callParent(arguments);
 
         Ext.Array.insert(items, 3, [{
+            id       : me.getId() + "-scan",
+            xtype    : "button",
+            text     : _("Scan"),
+            icon     : "images/search.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            handler  : Ext.Function.bind(me.onScanButton, me, [ me ]),
+            scope    : me
+        },{
+            id            : me.getId() + "-nic",
+            xtype         : "combo",
+            allowBlank    : false,
+            editable      : false,
+            triggerAction : "all",
+            displayField  : "devicename",
+            valueField    : "devicename",
+            store         : Ext.create("OMV.data.Store", {
+                autoLoad : true,
+                model    : OMV.data.Model.createImplicit({
+                    idProperty : "devicename",
+                    fields     : [
+                        { name : "devicename", type : "string" }
+                    ]
+                }),
+                proxy : {
+                    type    : "rpc",
+                    rpcData : {
+                        service : "Network",
+                        method  : "getInterfaceList"
+                    }
+                }
+            }),
+            listeners     : {
+                scope  : me,
+                change : function(combo, value) {
+                    me.deviceName = value;
+                }
+            }
+        },{
             id       : me.getId() + "-send",
             xtype    : "button",
             text     : _("Send"),
@@ -140,14 +180,6 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
             handler  : Ext.Function.bind(me.onSendButton, me, [ me ]),
             scope    : me,
             disabled : true
-        },{
-            id       : me.getId() + "-scan",
-            xtype    : "button",
-            text     : _("Scan"),
-            icon     : "images/search.png",
-            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler  : Ext.Function.bind(me.onScanButton, me, [ me ]),
-            scope    : me
         }]);
         return items;
     },
@@ -233,7 +265,10 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
     onSendButton : function() {
         var me = this;
         var record = me.getSelected();
-
+        if (me.deviceName == "") {
+            alert(_("Please select a network adapter from the dropdown."));
+            return;
+        }
         OMV.Rpc.request({
             scope       : me,
             relayErrors : false,
@@ -241,7 +276,8 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
                 service  : "Wol",
                 method   : "doSend",
                 params  : {
-                    uuid : record.get("uuid")
+                    uuid : record.get("uuid"),
+                    deviceName : me.deviceName
                 }
             }
         });

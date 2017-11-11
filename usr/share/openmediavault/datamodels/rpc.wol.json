@@ -55,4 +55,21 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.wol.send",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"deviceName": {
+			    "type": "string",
+				"required": true
+			}
+		}
+	}
 }]

@@ -1,3 +1,9 @@
+openmediavault-wol (3.3) stable; urgency=low
+
+  * Add network adapter dropdown
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 11 Nov 2017 11:28:01 -0600
+
 openmediavault-wol (3.2) stable; urgency=low
 
   * Improve foreign content handling

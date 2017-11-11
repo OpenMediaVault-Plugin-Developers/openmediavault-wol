@@ -4,7 +4,7 @@
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright Copyright (c) 2009-2013 Volker Theile
-# @copyright Copyright (c) 2014-2017 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2013-2017 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,31 +21,17 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-    configure)
-        # Activate package triggers. These triggers are only set during the
-        # package installation.
-        dpkg-trigger update-fixperms
-        dpkg-trigger update-locale
+SERVICE_XPATH_NAME="wol"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
-        # Initialize and migrate configuration database.
-        echo "Updating configuration database ..."
-        omv-confdbadm create "conf.service.wol"
-        if [ -n "$2" ]; then
-            omv-confdbadm migrate "conf.service.wol" "${2}"
-        fi
-    ;;
-
-    abort-upgrade|abort-remove|abort-deconfigure)
-    ;;
-
-    *)
-        echo "postinst called with unknown argument '$1'" >&2
-        exit 1
-    ;;
-esac
+if ! omv_config_exists "${SERVICE_XPATH}"; then
+    omv_config_add_node "/config/services" "${SERVICE_XPATH_NAME}"
+    omv_config_add_key "${SERVICE_XPATH}" "standbyhour" "0"
+    omv_config_add_key "${SERVICE_XPATH}" "standbyminute" "0"
+    omv_config_add_key "${SERVICE_XPATH}" "mode" "standby"
+    omv_config_add_node "${SERVICE_XPATH}" "systems"
+fi
 
 exit 0
