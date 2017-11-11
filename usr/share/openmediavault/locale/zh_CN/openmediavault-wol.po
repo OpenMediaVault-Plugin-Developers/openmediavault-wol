@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
 # songming <by@songming.me>, 2014
@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-11-14 19:51+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-wol/language/zh_CN/)\n"
+"POT-Creation-Date: 2017-11-11 11:30-0600\n"
+"PO-Revision-Date: 2017-11-11 17:30+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,6 +49,9 @@ msgid ""
 "On - Don't suspend but read RTC device until alarm time appears. This mode "
 "is useful for debugging."
 msgstr "On - 不挂起但读取RTC设备直到预设时间，这个模式在调试时有用。"
+
+msgid "Please select a network adapter from the dropdown."
+msgstr ""
 
 msgid "Poweroff - ACPI state S5"
 msgstr "关机 - ACPI状态 S5"
@@ -91,3 +94,6 @@ msgstr "系统"
 
 msgid "WOL"
 msgstr "WOL"
+
+msgid "n/a"
+msgstr ""
