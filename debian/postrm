@@ -29,6 +29,7 @@ case "$1" in
     ;;
 
     purge)
+        omv_config_delete "/config/services/wol"
     ;;
 
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
