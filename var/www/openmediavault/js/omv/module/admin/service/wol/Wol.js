@@ -29,99 +29,99 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
-Ext.define("OMV.module.admin.service.wol.System", {
-    extend   : "OMV.workspace.window.Form",
-    requires : [
-        "OMV.workspace.window.plugin.ConfigObject"
+Ext.define('OMV.module.admin.service.wol.System', {
+    extend: 'OMV.workspace.window.Form',
+    requires: [
+        'OMV.workspace.window.plugin.ConfigObject'
     ],
 
     plugins: [{
-        ptype : "configobject"
+        ptype: 'configobject'
     }],
 
-    rpcService   : "Wol",
-    rpcGetMethod : "getSystem",
-    rpcSetMethod : "setSystem",
+    rpcService: 'Wol',
+    rpcGetMethod: 'getSystem',
+    rpcSetMethod: 'setSystem',
 
     getFormItems: function() {
         var me = this;
         return [{
-            xtype      : "textfield",
-            name       : "name",
-            fieldLabel : _("Name"),
-            allowBlank : false
+            xtype: 'textfield',
+            name: 'name',
+            fieldLabel: _('Name'),
+            allowBlank: false
         },{
-            xtype      : "textfield",
-            name       : "mac",
-            fieldLabel : _("MAC Address"),
-            allowBlank : true
+            xtype: 'textfield',
+            name: 'mac',
+            fieldLabel: _('MAC Address'),
+            allowBlank: true
         },{
-            xtype      : "textfield",
-            name       : "ip",
-            fieldLabel : _("IP Address"),
-            allowBlank : true
+            xtype: 'textfield',
+            name: 'ip',
+            fieldLabel: _('IP Address'),
+            allowBlank: true
         }];
     }
 });
 
-Ext.define("OMV.module.admin.service.wol.Systems", {
-    extend   : "OMV.workspace.grid.Panel",
-    requires : [
-        "OMV.Rpc",
-        "OMV.data.Store",
-        "OMV.data.Model",
-        "OMV.data.proxy.Rpc",
-        "OMV.util.Format"
+Ext.define('OMV.module.admin.service.wol.Systems', {
+    extend: 'OMV.workspace.grid.Panel',
+    requires: [
+        'OMV.Rpc',
+        'OMV.data.Store',
+        'OMV.data.Model',
+        'OMV.data.proxy.Rpc',
+        'OMV.util.Format'
     ],
-    uses     : [
-        "OMV.module.admin.service.wol.System"
+    uses: [
+        'OMV.module.admin.service.wol.System'
     ],
 
-    deviceName : "",
+    deviceName: '',
 
-    hidePagingToolbar : false,
-    autoReload        : false,
-    stateful          : true,
-    stateId           : "a982a76d-6804-1632-a31b-8b48c0ea6dde",
-    columns           : [{
-        xtype     : "textcolumn",
-        text      : _("Name"),
-        sortable  : true,
-        dataIndex : "name",
-        stateId   : "name"
+    hidePagingToolbar: false,
+    autoReload: false,
+    stateful: true,
+    stateId: 'a982a76d-6804-1632-a31b-8b48c0ea6dde',
+    columns: [{
+        xtype: 'textcolumn',
+        text: _('Name'),
+        sortable: true,
+        dataIndex: 'name',
+        stateId: 'name'
     },{
-        xtype     : "textcolumn",
-        text      : _("MAC Address"),
-        sortable  : true,
-        dataIndex : "mac",
-        stateId   : "mac"
+        xtype: 'textcolumn',
+        text: _('MAC Address'),
+        sortable: true,
+        dataIndex: 'mac',
+        stateId: 'mac'
     },{
-        xtype     : "textcolumn",
-        text      : _("IP Address"),
-        sortable  : true,
-        dataIndex : "ip",
-        stateId   : "ip"
+        xtype: 'textcolumn',
+        text: _('IP Address'),
+        sortable: true,
+        dataIndex: 'ip',
+        stateId: 'ip'
     }],
 
     initComponent: function() {
         var me = this;
         Ext.apply(me, {
-            store : Ext.create("OMV.data.Store", {
-                autoLoad : true,
-                model    : OMV.data.Model.createImplicit({
-                    idProperty : "uuid",
-                    fields     : [
-                        { name : "uuid", type: "string" },
-                        { name : "name", type: "string" },
-                        { name : "mac", type: "string" },
-                        { name : "ip", type: "string" }
+            store: Ext.create('OMV.data.Store', {
+                autoLoad: true,
+                model: OMV.data.Model.createImplicit({
+                    idProperty: 'uuid',
+                    fields: [
+                        { name: 'uuid', type: 'string' },
+                        { name: 'name', type: 'string' },
+                        { name: 'mac', type: 'string' },
+                        { name: 'ip', type: 'string' }
                     ]
                 }),
-                proxy    : {
-                    type    : "rpc",
-                    rpcData : {
-                        service : "Wol",
-                        method  : "getSystemList"
+                proxy: {
+                    type: 'rpc',
+                    rpcData: {
+                        service: 'Wol',
+                        method: 'getSystemList'
                     }
                 }
             })
@@ -134,52 +134,52 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
         var items = me.callParent(arguments);
 
         Ext.Array.insert(items, 3, [{
-            id       : me.getId() + "-scan",
-            xtype    : "button",
-            text     : _("Scan"),
-            icon     : "images/search.png",
-            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler  : Ext.Function.bind(me.onScanButton, me, [ me ]),
-            scope    : me
+            id: me.getId() + '-scan',
+            xtype: 'button',
+            text: _('Scan'),
+            icon: 'images/search.png',
+            iconCls: Ext.baseCSSPrefix + 'btn-icon-16x16',
+            handler: Ext.Function.bind(me.onScanButton, me, [ me ]),
+            scope: me
         },{
-            id            : me.getId() + "-nic",
-            xtype         : "combo",
-            allowBlank    : false,
-            editable      : false,
-            triggerAction : "all",
-            displayField  : "devicename",
-            valueField    : "devicename",
-            store         : Ext.create("OMV.data.Store", {
-                autoLoad : true,
-                model    : OMV.data.Model.createImplicit({
-                    idProperty : "devicename",
-                    fields     : [
-                        { name : "devicename", type : "string" }
+            id: me.getId() + '-nic',
+            xtype: 'combo',
+            allowBlank: false,
+            editable: false,
+            triggerAction: 'all',
+            displayField: 'devicename',
+            valueField: 'devicename',
+            store: Ext.create('OMV.data.Store', {
+                autoLoad: true,
+                model: OMV.data.Model.createImplicit({
+                    idProperty: 'devicename',
+                    fields: [
+                        { name: 'devicename', type: 'string' }
                     ]
                 }),
-                proxy : {
-                    type    : "rpc",
-                    rpcData : {
-                        service : "Network",
-                        method  : "getInterfaceList"
+                proxy: {
+                    type: 'rpc',
+                    rpcData: {
+                        service: 'Network',
+                        method: 'getInterfaceList'
                     }
                 }
             }),
-            listeners     : {
-                scope  : me,
-                change : function(combo, value) {
+            listeners: {
+                scope: me,
+                change: function(combo, value) {
                     me.deviceName = value;
                 }
             }
         },{
-            id       : me.getId() + "-send",
-            xtype    : "button",
-            text     : _("Send"),
-            icon     : "images/network.png",
-            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
-            handler  : Ext.Function.bind(me.onSendButton, me, [ me ]),
-            scope    : me,
-            disabled : true
+            id: me.getId() + '-send',
+            xtype: 'button',
+            text: _('Send'),
+            icon: 'images/network.png',
+            iconCls: Ext.baseCSSPrefix + 'btn-icon-16x16',
+            handler: Ext.Function.bind(me.onSendButton, me, [ me ]),
+            scope: me,
+            disabled: true
         }]);
         return items;
     },
@@ -189,10 +189,10 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
         me.callParent(arguments);
         // Process additional buttons.
         var tbarBtnDisabled = {
-            "send" : true
+            'send': true
         };
         if(records.length == 1) {
-            tbarBtnDisabled["send"] = false;
+            tbarBtnDisabled['send'] = false;
         }
         // Update the button controls.
         Ext.Object.each(tbarBtnDisabled, function(key, value) {
@@ -202,12 +202,12 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
 
     onAddButton: function() {
         var me = this;
-        Ext.create("OMV.module.admin.service.wol.System", {
-            title     : _("Add system"),
-            uuid      : OMV.UUID_UNDEFINED,
-            listeners : {
-                scope  : me,
-                submit : function() {
+        Ext.create('OMV.module.admin.service.wol.System', {
+            title: _('Add system'),
+            uuid: OMV.UUID_UNDEFINED,
+            listeners: {
+                scope: me,
+                submit: function() {
                     this.doReload();
                 }
             }
@@ -217,12 +217,12 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
     onEditButton: function() {
         var me = this;
         var record = me.getSelected();
-        Ext.create("OMV.module.admin.service.wol.System", {
-            title     : _("Edit system"),
-            uuid      : record.get("uuid"),
-            listeners : {
-                scope  : me,
-                submit : function() {
+        Ext.create('OMV.module.admin.service.wol.System', {
+            title: _('Edit system'),
+            uuid: record.get('uuid'),
+            listeners: {
+                scope: me,
+                submit: function() {
                     this.doReload();
                 }
             }
@@ -232,55 +232,55 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
     doDeletion: function(record) {
         var me = this;
         OMV.Rpc.request({
-            scope    : me,
-            callback : me.onDeletion,
-            rpcData  : {
-                service : "Wol",
-                method  : "deleteSystem",
-                params  : {
-                    uuid : record.get("uuid")
+            scope: me,
+            callback: me.onDeletion,
+            rpcData: {
+                service: 'Wol',
+                method: 'deleteSystem',
+                params: {
+                    uuid: record.get('uuid')
                 }
             }
         });
     },
 
-    onScanButton : function() {
+    onScanButton: function() {
         var me = this;
 
-        OMV.MessageBox.wait(null, _("Scanning network for systems to add..."));
+        OMV.MessageBox.wait(null, _('Scanning network for systems to add...'));
         OMV.Rpc.request({
-            scope       : me,
-            relayErrors : false,
-            rpcData     : {
-                service  : "Wol",
-                method   : "doScan",
-                params  : {
-                    deviceName : me.deviceName
+            scope: me,
+            relayErrors: false,
+            rpcData: {
+                service: 'Wol',
+                method: 'doScan',
+                params: {
+                    deviceName: me.deviceName
                 }
             },
-            success : function(id, success, response) {
+            success: function(id, success, response) {
                 me.doReload();
                 OMV.MessageBox.hide();
             }
         });
     },
 
-    onSendButton : function() {
+    onSendButton: function() {
         var me = this;
         var record = me.getSelected();
-        if (me.deviceName == "") {
-            alert(_("Please select a network adapter from the dropdown."));
+        if (me.deviceName == '') {
+            alert(_('Please select a network adapter from the dropdown.'));
             return;
         }
         OMV.Rpc.request({
-            scope       : me,
-            relayErrors : false,
-            rpcData     : {
-                service  : "Wol",
-                method   : "doSend",
-                params  : {
-                    uuid : record.get("uuid"),
-                    deviceName : me.deviceName
+            scope: me,
+            relayErrors: false,
+            rpcData: {
+                service: 'Wol',
+                method: 'doSend',
+                params: {
+                    uuid: record.get('uuid'),
+                    deviceName: me.deviceName
                 }
             }
         });
@@ -288,17 +288,17 @@ Ext.define("OMV.module.admin.service.wol.Systems", {
 });
 
 OMV.WorkspaceManager.registerNode({
-    id      : "wol",
-    path    : "/service",
-    text    : _("WOL"),
-    icon16  : "images/network.png",
-    iconSvg : "images/network.svg"
+    id: 'wol',
+    path: '/service',
+    text: _('WOL'),
+    icon16: 'images/network.png',
+    iconSvg: 'images/network.svg'
 });
 
 OMV.WorkspaceManager.registerPanel({
-    id        : "systems",
-    path      : "/service/wol",
-    text      : _("Systems"),
-    position  : 10,
-    className : "OMV.module.admin.service.wol.Systems"
+    id: 'systems',
+    path: '/service/wol',
+    text: _('Systems'),
+    position: 10,
+    className: 'OMV.module.admin.service.wol.Systems'
 });
