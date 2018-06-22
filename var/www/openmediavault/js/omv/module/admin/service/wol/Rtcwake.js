@@ -63,8 +63,8 @@ Ext.define('OMV.module.admin.service.wol.Rtcwake', {
                         [ 'mem', _('Suspend-to-RAM - ACPI state S3') ],
                         [ 'disk', _('Suspend-to-Disk - ACPI state S4') ],
                         [ 'off', _('Poweroff - ACPI state S5') ],
-                        [ 'no', _('No - Don't suspend. Sets RTC wakeup time only.') ],
-                        [ 'on', _('On - Don't suspend but read RTC device until alarm time appears. This mode is useful for debugging.') ]
+                        [ 'no', _('No - Don\'t suspend. Sets RTC wakeup time only.') ],
+                        [ 'on', _('On - Don\'t suspend but read RTC device until alarm time appears. This mode is useful for debugging.') ]
                     ]
                 }),
                 displayField: 'text',
