@@ -1,3 +1,9 @@
+openmediavault-wol (3.4.2) stable; urgency=low
+
+  * Improve uninstall
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 18 Aug 2019 19:22:59 -0500
+
 openmediavault-wol (3.4.1) stable; urgency=low
 
   * Fix typo
