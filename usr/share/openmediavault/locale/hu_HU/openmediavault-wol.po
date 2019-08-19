@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2018-06-21 18:33+0000\n"
+"Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,81 +19,81 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add system"
-msgstr ""
+msgstr "Rendszer hozzáadása"
 
 msgid "Are you sure you want to enter standy mode?"
-msgstr ""
+msgstr "Valóban készenléti állapotba helyezendő a rendszer?"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Megerősítés"
 
 msgid "Edit system"
-msgstr ""
+msgstr "Rendszer szerkesztése"
 
 msgid "Entering standby mode..."
-msgstr ""
+msgstr "Készenléti állapotba helyezés…"
 
 msgid "IP Address"
-msgstr ""
+msgstr "IP-cím"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-cím"
 
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
-msgstr ""
+msgstr "Nincs – Nincs hibernálás. Csak az RTC ébresztési idő kerül beállításra."
 
 msgid ""
 "On - Don't suspend but read RTC device until alarm time appears. This mode "
 "is useful for debugging."
-msgstr ""
+msgstr "Bekapcsolva – Nincs hibernálás, azonban az RTC-eszköz olvasásra kerül az ébresztési idő bekövetkeztéig.  Ez a mód nagyon hasznos hibakeresésre."
 
 msgid "Please select a network adapter from the dropdown."
-msgstr ""
+msgstr "Ki kell jelölni egy hálózati csatolót a listából."
 
 msgid "Poweroff - ACPI state S5"
-msgstr ""
+msgstr "Kikapcsolás – S5-ös ACPI-állapot"
 
 msgid "Rtcwake"
-msgstr ""
+msgstr "rtcwake"
 
 msgid "Scan"
-msgstr ""
+msgstr "Letapogatás"
 
 msgid "Scanning network for systems to add..."
-msgstr ""
+msgstr "Hálózat letapogatása hozzáadható rendszerek után"
 
 msgid "Send"
-msgstr ""
+msgstr "Küldés"
 
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 msgid "Standby"
-msgstr ""
+msgstr "Készenlét"
 
 msgid "Standby - ACPI state S1"
-msgstr ""
+msgstr "Készenléti állapot – S1-es ACPI-állapot"
 
 msgid "Standby Mode"
-msgstr ""
+msgstr "Készenléti állapot"
 
 msgid "Standby Time"
-msgstr ""
+msgstr "Készenléti idő"
 
 msgid "Suspend-to-Disk - ACPI state S4"
-msgstr ""
+msgstr "Hibernálás – S4-es ACPI-állapot"
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr ""
+msgstr "Felfüggesztés – S3-as ACPI-állapot"
 
 msgid "Systems"
-msgstr ""
+msgstr "Rendszerek"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "n/a"
-msgstr ""
+msgstr "nincs"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
+# Jonatan Nyberg, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2018-11-11 11:34+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add system"
-msgstr ""
+msgstr "Lägg till system"
 
 msgid "Are you sure you want to enter standy mode?"
-msgstr ""
+msgstr "Är du säker på att du vill gå in i viloläge?"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Bekräftelse"
 
 msgid "Edit system"
-msgstr ""
+msgstr "Redigera system"
 
 msgid "Entering standby mode..."
-msgstr ""
+msgstr "Går in i vänteläge..."
 
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adress"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-adress"
 
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
 msgstr ""
@@ -50,37 +51,37 @@ msgid ""
 msgstr ""
 
 msgid "Please select a network adapter from the dropdown."
-msgstr ""
+msgstr "Välj en nätverksadapter från rullgardinsmenyn."
 
 msgid "Poweroff - ACPI state S5"
-msgstr ""
+msgstr "Avstängning - ACPI state S5"
 
 msgid "Rtcwake"
-msgstr ""
+msgstr "Rtcwake"
 
 msgid "Scan"
-msgstr ""
+msgstr "Skanna"
 
 msgid "Scanning network for systems to add..."
-msgstr ""
+msgstr "Skannar nätverk för system för att lägga till..."
 
 msgid "Send"
-msgstr ""
+msgstr "Skicka"
 
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 msgid "Standby"
-msgstr ""
+msgstr "Vänteläge"
 
 msgid "Standby - ACPI state S1"
-msgstr ""
+msgstr "Vänteläge - ACPI state S1"
 
 msgid "Standby Mode"
-msgstr ""
+msgstr "Vänteläge"
 
 msgid "Standby Time"
-msgstr ""
+msgstr "Vänteläge tid"
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr ""
@@ -89,10 +90,10 @@ msgid "Suspend-to-RAM - ACPI state S3"
 msgstr ""
 
 msgid "Systems"
-msgstr ""
+msgstr "System"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "n/a"
-msgstr ""
+msgstr "inga"

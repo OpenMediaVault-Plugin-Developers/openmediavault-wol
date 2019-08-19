@@ -4,15 +4,15 @@
 # 
 # Translators:
 # David Hönel <davidh1990@gmx.de>, 2015
-# Ettore Atalan <atalanttore@googlemail.com>, 2014
+# Ettore Atalan <atalanttore@googlemail.com>, 2014,2017
 # Kai Sieben <inactive+sieben@transifex.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2017-11-12 22:54+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +53,7 @@ msgid ""
 msgstr "Ein - Nicht in Ruhezustand versetzen aber RTC wird gelesen bis Alarmzeit auftritt."
 
 msgid "Please select a network adapter from the dropdown."
-msgstr ""
+msgstr "Bitte wählen Sie aus der Dropdown-Liste einen Netzwerkadapter aus."
 
 msgid "Poweroff - ACPI state S5"
 msgstr "Ausgeschaltet - ACPI-Status S5"
@@ -98,4 +98,4 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/v"

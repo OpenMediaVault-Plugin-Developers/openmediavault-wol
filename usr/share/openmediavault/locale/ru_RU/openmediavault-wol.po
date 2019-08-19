@@ -5,13 +5,14 @@
 # Translators:
 # Alexander Savchenko, 2015
 # Артур Мудрых <arturmon82@gmail.com>, 2017
+# Дмитрий <bardimnik@rambler.ru>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2019-08-08 13:16+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,13 +53,13 @@ msgid ""
 msgstr "Вкл. - Не приостанавливать, а считывать устройство RTC до тех пор, пока не появится время сигнала. Этот режим полезен для отладки."
 
 msgid "Please select a network adapter from the dropdown."
-msgstr ""
+msgstr "Пожалуйста, выберите сетевой адаптер из выпадающего списка."
 
 msgid "Poweroff - ACPI state S5"
 msgstr "Выключение - состояние ACPI S5"
 
 msgid "Rtcwake"
-msgstr ""
+msgstr "Войти в состояние сна системы до указанного времени активации"
 
 msgid "Scan"
 msgstr "Сканирование"
@@ -97,4 +98,4 @@ msgid "WOL"
 msgstr "WOL"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"

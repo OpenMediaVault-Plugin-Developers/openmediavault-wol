@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2014
+# kochin <kochinc@outlook.com>, 2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2017-11-18 12:32+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid ""
 msgstr "開啟 - 不要暫停，但讀取 RTC 裝置直到警鈴時間出現。此狀態對偵錯時有用。"
 
 msgid "Please select a network adapter from the dropdown."
-msgstr ""
+msgstr "請從拉下選單中選擇一個網路配接器。"
 
 msgid "Poweroff - ACPI state S5"
 msgstr "關機 - ACPI 狀態 S5"
@@ -96,4 +96,4 @@ msgid "WOL"
 msgstr "網路喚醒"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
