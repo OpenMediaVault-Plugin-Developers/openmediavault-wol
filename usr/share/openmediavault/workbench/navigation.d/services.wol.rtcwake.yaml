@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.wol.rtcwake"
+  text: _("Rtcwake")
+  position: 20
+  icon: "mdi:alarm-check"
+  url: "/services/wol/rtcwake"

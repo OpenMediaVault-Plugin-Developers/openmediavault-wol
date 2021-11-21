@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/wol/rtcwake"
+  title: _("Rtcwake")
+  editing: true
+  component: omv-services-wol-rtcwake-form-page

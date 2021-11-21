@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/wol/system/create"
+  title: _("Create")
+  notificationTitle: _("Created system.")
+  component: omv-services-wol-system-form-page

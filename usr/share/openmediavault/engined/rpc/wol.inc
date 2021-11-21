@@ -171,7 +171,7 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
 
         $cmdArgs = [];
         $cmdArgs = '-m';
-        if (!empty($params['devicename'])) {
+        if (!empty($params['deviceName'])) {
             $cmdArgs = sprintf('-i %s', $params['deviceName']);
         }
         $cmd = new \OMV\System\Process('nast', $cmdArgs);

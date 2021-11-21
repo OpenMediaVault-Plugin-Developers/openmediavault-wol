@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.wol"
+  text: _("WOL")
+  icon: "mdi:lan-check"
+  url: "/services/wol"
