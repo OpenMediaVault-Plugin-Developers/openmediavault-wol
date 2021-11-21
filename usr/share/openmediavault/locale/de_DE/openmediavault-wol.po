@@ -5,14 +5,14 @@
 # Translators:
 # David Hönel <davidh1990@gmx.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2014,2017
-# Kai Sieben <inactive+sieben@transifex.com>, 2016
+# d4e998992c5d77930be0dd0199008e4a_0663716 <f71f241308a4c2d418872ce2fcb85dec_386310>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-12 22:54+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2021-11-20 21:09-0600\n"
+"PO-Revision-Date: 2021-11-21 03:09+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +20,23 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add system"
-msgstr "System hinzufügen"
-
 msgid "Are you sure you want to enter standy mode?"
 msgstr "Bist du dir sicher dass du den Bereitschaftsmodus betreten möchtest?"
 
-msgid "Confirmation"
-msgstr "Bestätigung"
+msgid "Create"
+msgstr ""
 
-msgid "Edit system"
-msgstr "System bearbeiten"
+msgid "Created system."
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit system."
+msgstr ""
 
 msgid "Entering standby mode..."
 msgstr "Betrete Bereitschaftsmodus..."
@@ -38,8 +44,14 @@ msgstr "Betrete Bereitschaftsmodus..."
 msgid "IP Address"
 msgstr "IP-Adresse"
 
+msgid "IP address"
+msgstr ""
+
 msgid "MAC Address"
 msgstr "MAC-Adresse"
+
+msgid "MAC address"
+msgstr ""
 
 msgid "Name"
 msgstr "Name"
@@ -52,9 +64,6 @@ msgid ""
 "is useful for debugging."
 msgstr "Ein - Nicht in Ruhezustand versetzen aber RTC wird gelesen bis Alarmzeit auftritt."
 
-msgid "Please select a network adapter from the dropdown."
-msgstr "Bitte wählen Sie aus der Dropdown-Liste einen Netzwerkadapter aus."
-
 msgid "Poweroff - ACPI state S5"
 msgstr "Ausgeschaltet - ACPI-Status S5"
 
@@ -64,14 +73,11 @@ msgstr "Rtcwake"
 msgid "Scan"
 msgstr "Abfragen"
 
-msgid "Scanning network for systems to add..."
-msgstr "Durchsuche das Netzwerk nach Systemen zum hinzufügen..."
-
 msgid "Send"
 msgstr "Senden"
 
-msgid "Settings"
-msgstr "Einstellungen"
+msgid "Send packet"
+msgstr ""
 
 msgid "Standby"
 msgstr "Bereitschaft"
@@ -79,11 +85,14 @@ msgstr "Bereitschaft"
 msgid "Standby - ACPI state S1"
 msgstr "Bereitschaft - ACPI-Status S1"
 
-msgid "Standby Mode"
-msgstr "Bereitschaftsmodus"
+msgid "Standby hour"
+msgstr ""
 
-msgid "Standby Time"
-msgstr "Bereitschaftszeit"
+msgid "Standby minute"
+msgstr ""
+
+msgid "Standby mode"
+msgstr ""
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr "Verschieben-auf-Festplatte (Suspend-to-Disk) - ACPI Status S4"

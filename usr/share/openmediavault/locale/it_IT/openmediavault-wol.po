@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
+"POT-Creation-Date: 2021-11-20 21:09-0600\n"
+"PO-Revision-Date: 2021-11-21 03:09+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,17 +18,23 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add system"
-msgstr "Aggiungi sistema"
-
 msgid "Are you sure you want to enter standy mode?"
 msgstr "Sei sicuro di voler entrare in standby?"
 
-msgid "Confirmation"
-msgstr "Conferma"
+msgid "Create"
+msgstr ""
 
-msgid "Edit system"
-msgstr "Modifica sistema"
+msgid "Created system."
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit system."
+msgstr ""
 
 msgid "Entering standby mode..."
 msgstr "Attivazione modalità standby ..."
@@ -36,8 +42,14 @@ msgstr "Attivazione modalità standby ..."
 msgid "IP Address"
 msgstr "Indirizzo IP"
 
+msgid "IP address"
+msgstr ""
+
 msgid "MAC Address"
 msgstr "Indirizzo MAC"
+
+msgid "MAC address"
+msgstr ""
 
 msgid "Name"
 msgstr "Nome"
@@ -50,9 +62,6 @@ msgid ""
 "is useful for debugging."
 msgstr "Attivo - Non sospendere ma leggi il dispositivo RTC finché non compare l'allarme temporizzato. Questa modalità è utile per il debugging."
 
-msgid "Please select a network adapter from the dropdown."
-msgstr ""
-
 msgid "Poweroff - ACPI state S5"
 msgstr "Spegni - stato ACPI S5"
 
@@ -62,14 +71,11 @@ msgstr "Rtcwake"
 msgid "Scan"
 msgstr "Scansione"
 
-msgid "Scanning network for systems to add..."
-msgstr "Scansione della rete per nuovi sistemi da aggiungere ..."
-
 msgid "Send"
 msgstr "Invia"
 
-msgid "Settings"
-msgstr "Impostazioni"
+msgid "Send packet"
+msgstr ""
 
 msgid "Standby"
 msgstr "Standby"
@@ -77,11 +83,14 @@ msgstr "Standby"
 msgid "Standby - ACPI state S1"
 msgstr "Standby - Stato ACPI S1"
 
-msgid "Standby Mode"
-msgstr "Modalità di standby"
+msgid "Standby hour"
+msgstr ""
 
-msgid "Standby Time"
-msgstr "Tempo di standby"
+msgid "Standby minute"
+msgstr ""
+
+msgid "Standby mode"
+msgstr ""
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr "Suspend-to-Disk - Stato ACPI S4"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2019-08-08 13:16+0000\n"
-"Last-Translator: Дмитрий <bardimnik@rambler.ru>\n"
+"POT-Creation-Date: 2021-11-20 21:09-0600\n"
+"PO-Revision-Date: 2021-11-21 03:09+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +20,23 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-msgid "Add system"
-msgstr "Добавить систему"
-
 msgid "Are you sure you want to enter standy mode?"
 msgstr "Вы действительно хотите перейти в режим ожидания?"
 
-msgid "Confirmation"
-msgstr "Подтверждение"
+msgid "Create"
+msgstr ""
 
-msgid "Edit system"
-msgstr "Изменить систему"
+msgid "Created system."
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit system."
+msgstr ""
 
 msgid "Entering standby mode..."
 msgstr "Переход в режим ожидания ..."
@@ -38,8 +44,14 @@ msgstr "Переход в режим ожидания ..."
 msgid "IP Address"
 msgstr "IP-адрес"
 
+msgid "IP address"
+msgstr ""
+
 msgid "MAC Address"
 msgstr "MAC-адрес"
+
+msgid "MAC address"
+msgstr ""
 
 msgid "Name"
 msgstr "Имя"
@@ -52,9 +64,6 @@ msgid ""
 "is useful for debugging."
 msgstr "Вкл. - Не приостанавливать, а считывать устройство RTC до тех пор, пока не появится время сигнала. Этот режим полезен для отладки."
 
-msgid "Please select a network adapter from the dropdown."
-msgstr "Пожалуйста, выберите сетевой адаптер из выпадающего списка."
-
 msgid "Poweroff - ACPI state S5"
 msgstr "Выключение - состояние ACPI S5"
 
@@ -64,14 +73,11 @@ msgstr "Войти в состояние сна системы до указан
 msgid "Scan"
 msgstr "Сканирование"
 
-msgid "Scanning network for systems to add..."
-msgstr "Сканирование сети для добавления систем ..."
-
 msgid "Send"
 msgstr "Послать"
 
-msgid "Settings"
-msgstr "Настройки"
+msgid "Send packet"
+msgstr ""
 
 msgid "Standby"
 msgstr "Ожидание"
@@ -79,11 +85,14 @@ msgstr "Ожидание"
 msgid "Standby - ACPI state S1"
 msgstr "Режим ожидания - состояние ACPI S1"
 
-msgid "Standby Mode"
-msgstr "Режим ожидания"
+msgid "Standby hour"
+msgstr ""
 
-msgid "Standby Time"
-msgstr "Время ожидания"
+msgid "Standby minute"
+msgstr ""
+
+msgid "Standby mode"
+msgstr ""
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr "Сохранить на диск - состояние ACPI S4"

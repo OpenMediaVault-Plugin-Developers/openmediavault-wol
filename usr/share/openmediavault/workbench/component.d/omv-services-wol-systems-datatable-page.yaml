@@ -85,9 +85,15 @@ data:
               - type: hidden
                 name: uuid
                 value: "{{ _selected[0].uuid }}"
+              - type: textInput
+                name: name
+                label: _("Name")
+                value: "{{ _selected[0].name }}"
+                readonly: true
+                submitValue: false
               - type: select
                 name: deviceName
-                label: _('Device')
+                label: _("Device")
                 textField: devicename
                 valueField: devicename
                 store:

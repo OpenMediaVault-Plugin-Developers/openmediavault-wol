@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-11 11:30-0600\n"
-"PO-Revision-Date: 2017-11-11 17:30+0000\n"
+"POT-Creation-Date: 2021-11-20 21:09-0600\n"
+"PO-Revision-Date: 2021-11-21 03:09+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Adyghe (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/ady/)\n"
 "MIME-Version: 1.0\n"
@@ -17,16 +17,22 @@ msgstr ""
 "Language: ady\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Add system"
-msgstr ""
-
 msgid "Are you sure you want to enter standy mode?"
 msgstr ""
 
-msgid "Confirmation"
+msgid "Create"
 msgstr ""
 
-msgid "Edit system"
+msgid "Created system."
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit system."
 msgstr ""
 
 msgid "Entering standby mode..."
@@ -35,7 +41,13 @@ msgstr ""
 msgid "IP Address"
 msgstr ""
 
+msgid "IP address"
+msgstr ""
+
 msgid "MAC Address"
+msgstr ""
+
+msgid "MAC address"
 msgstr ""
 
 msgid "Name"
@@ -49,9 +61,6 @@ msgid ""
 "is useful for debugging."
 msgstr ""
 
-msgid "Please select a network adapter from the dropdown."
-msgstr ""
-
 msgid "Poweroff - ACPI state S5"
 msgstr ""
 
@@ -61,13 +70,10 @@ msgstr ""
 msgid "Scan"
 msgstr ""
 
-msgid "Scanning network for systems to add..."
-msgstr ""
-
 msgid "Send"
 msgstr ""
 
-msgid "Settings"
+msgid "Send packet"
 msgstr ""
 
 msgid "Standby"
@@ -76,10 +82,13 @@ msgstr ""
 msgid "Standby - ACPI state S1"
 msgstr ""
 
-msgid "Standby Mode"
+msgid "Standby hour"
 msgstr ""
 
-msgid "Standby Time"
+msgid "Standby minute"
+msgstr ""
+
+msgid "Standby mode"
 msgstr ""
 
 msgid "Suspend-to-Disk - ACPI state S4"
