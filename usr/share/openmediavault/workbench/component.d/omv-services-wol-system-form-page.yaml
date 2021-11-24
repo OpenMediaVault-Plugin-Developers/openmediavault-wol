@@ -17,16 +17,30 @@ data:
       - type: textInput
         name: name
         label: _("Name")
+        validators:
+          required: true
       - type: textInput
         name: mac
         label: _("MAC address")
+        value: ""
         validators:
-          required: false
+          requiredIf:
+            operator: n
+            arg0:
+              prop: mac
+          pattern:
+            pattern: '^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$'
+            errorData: _("Invalid mac address format")
       - type: textInput
         name: ip
         label: _("IP address")
+        value: ""
         validators:
-          required: false
+          requiredIf:
+            operator: n
+            arg0:
+              prop: ip
+          patternType: ipv4
     buttons:
       - template: submit
         execute:
