@@ -1,7 +1,7 @@
 version: "1.0"
 type: component
 data:
-  name: omv-services-wol-system-form-page
+  name: omv-services-wol-form-page
   type: formPage
   config:
     request:
@@ -45,8 +45,8 @@ data:
       - template: submit
         execute:
           type: url
-          url: "/services/wol/systems"
+          url: "/services/wol"
       - template: cancel
         execute:
           type: url
-          url: "/services/wol/systems"
+          url: "/services/wol"

@@ -1,3 +1,9 @@
+openmediavault-wol (6.1) stable; urgency=low
+
+  * Move rtcwake tab to button
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 07 Aug 2022 10:39:15 -0500
+
 openmediavault-wol (6.0.1) stable; urgency=low
 
   * Add system field validation

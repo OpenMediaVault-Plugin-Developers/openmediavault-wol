@@ -1,0 +1,239 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-wol-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    hasSearchField: true
+    stateId: a982a76d-6804-1632-a31b-8b48c0ea6dde
+    store:
+      proxy:
+        service: Wol
+        get:
+          method: getSystemList
+    columns:
+      - name: _("Name")
+        prop: name
+        flexGrow: 1
+        sortable: true
+      - name: _("MAC Address")
+        prop: mac
+        flexGrow: 1
+        sortable: true
+      - name: _("IP Address")
+        prop: ip
+        flexGrow: 1
+        sortable: true
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/services/wol/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/services/wol/edit/{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Wol
+            method: deleteSystem
+            params:
+              uuid: "{{ _selected[0].uuid }}"
+      - type: iconButton
+        tooltip: _("Scan")
+        icon: mdi:magnify-plus-outline
+        execute:
+          type: formDialog
+          formDialog:
+            title: _('Scanning network for systems to add...')
+            fields:
+              - type: select
+                name: deviceName
+                label: _('Device')
+                textField: devicename
+                valueField: devicename
+                store:
+                  proxy:
+                    service: Network
+                    get:
+                      method: enumerateConfiguredDevices
+                validators:
+                  required: false
+            buttons:
+              submit:
+                text: _('Scan')
+                execute:
+                  type: request
+                  request:
+                    service: Wol
+                    method: doScan
+              successUrl: /services/wol
+      - type: iconButton
+        tooltip: _("Send")
+        icon: mdi:download-network-outline
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: formDialog
+          formDialog:
+            title: _("Send packet")
+            fields:
+              - type: hidden
+                name: uuid
+                value: "{{ _selected[0].uuid }}"
+              - type: textInput
+                name: name
+                label: _("Name")
+                value: "{{ _selected[0].name }}"
+                readonly: true
+                submitValue: false
+              - type: select
+                name: deviceName
+                label: _("Device")
+                textField: devicename
+                valueField: devicename
+                store:
+                  proxy:
+                    service: Network
+                    get:
+                      method: enumerateConfiguredDevices
+                validators:
+                  required: true
+            buttons:
+              submit:
+                text: _('Send')
+                execute:
+                  type: request
+                  request:
+                    service: Wol
+                    method: doSend
+              successUrl: /services/wol
+      - type: iconButton
+        tooltip: _("Schedule rtcwake")
+        icon: mdi:alarm-check
+        execute:
+          type: formDialog
+          formDialog:
+            title: _("Schedule rtcwake ...")
+            fields:
+              - type: select
+                name: mode
+                label: _("Standby mode")
+                value: "no"
+                store:
+                  data:
+                    - ["standby", _("Standby - ACPI state S1")]
+                    - ["mem", _("Suspend-to-RAM - ACPI state S3")]
+                    - ["disk", _("Suspend-to-Disk - ACPI state S4")]
+                    - ["off", _("Poweroff - ACPI state S5")]
+                    - ["no", _("No - Don"t suspend. Sets RTC wakeup time only.")]
+                    - ["on", _("On - Don"t suspend but read RTC device until alarm time appears. This mode is useful for debugging.")]
+              - type: select
+                name: standbyhour
+                label: _("Standby hour")
+                value: ""
+                store:
+                  data:
+                    - ["0", "0"]
+                    - ["1", "1"]
+                    - ["2", "2"]
+                    - ["3", "3"]
+                    - ["4", "4"]
+                    - ["5", "5"]
+                    - ["6", "6"]
+                    - ["7", "7"]
+                    - ["8", "8"]
+                    - ["9", "9"]
+                    - ["10", "10"]
+                    - ["11", "11"]
+                    - ["12", "12"]
+                    - ["13", "13"]
+                    - ["14", "14"]
+                    - ["15", "15"]
+                    - ["16", "16"]
+                    - ["17", "17"]
+                    - ["18", "18"]
+                    - ["19", "19"]
+                    - ["20", "20"]
+                    - ["21", "21"]
+                    - ["22", "22"]
+                    - ["23", "23"]
+              - type: select
+                name: standbyminute
+                label: _("Standby minute")
+                value: ""
+                store:
+                  data:
+                    - ["0", "0"]
+                    - ["1", "1"]
+                    - ["2", "2"]
+                    - ["3", "3"]
+                    - ["4", "4"]
+                    - ["5", "5"]
+                    - ["6", "6"]
+                    - ["7", "7"]
+                    - ["8", "8"]
+                    - ["9", "9"]
+                    - ["10", "10"]
+                    - ["11", "11"]
+                    - ["12", "12"]
+                    - ["13", "13"]
+                    - ["14", "14"]
+                    - ["15", "15"]
+                    - ["16", "16"]
+                    - ["17", "17"]
+                    - ["18", "18"]
+                    - ["19", "19"]
+                    - ["20", "20"]
+                    - ["21", "21"]
+                    - ["22", "22"]
+                    - ["23", "23"]
+                    - ["24", "24"]
+                    - ["25", "25"]
+                    - ["26", "26"]
+                    - ["27", "27"]
+                    - ["28", "28"]
+                    - ["29", "29"]
+                    - ["30", "30"]
+                    - ["31", "31"]
+                    - ["32", "32"]
+                    - ["33", "33"]
+                    - ["34", "34"]
+                    - ["35", "35"]
+                    - ["36", "36"]
+                    - ["37", "37"]
+                    - ["38", "38"]
+                    - ["39", "39"]
+                    - ["40", "40"]
+                    - ["41", "41"]
+                    - ["42", "42"]
+                    - ["43", "43"]
+                    - ["44", "44"]
+                    - ["45", "45"]
+                    - ["46", "46"]
+                    - ["47", "47"]
+                    - ["48", "48"]
+                    - ["49", "49"]
+                    - ["50", "50"]
+                    - ["51", "51"]
+                    - ["52", "52"]
+                    - ["53", "53"]
+                    - ["54", "54"]
+                    - ["55", "55"]
+                    - ["56", "56"]
+                    - ["57", "57"]
+                    - ["58", "58"]
+                    - ["59", "59"]
+            buttons:
+              submit:
+                text: _('Set')
+                execute:
+                  type: request
+                  request:
+                    service: Wol
+                    method: doWake
+                successUrl: /services/wol

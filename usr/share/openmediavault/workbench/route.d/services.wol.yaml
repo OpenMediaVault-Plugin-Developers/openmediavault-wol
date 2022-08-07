@@ -3,4 +3,4 @@ type: route
 data:
   url: "/services/wol"
   title: _("WOL")
-  component: omv-services-wol-navigation-page
+  component: omv-services-wol-datatable-page

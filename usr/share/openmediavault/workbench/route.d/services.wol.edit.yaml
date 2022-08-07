@@ -1,8 +1,8 @@
 version: "1.0"
 type: route
 data:
-  url: "/services/wol/system/edit/:uuid"
+  url: "/services/wol/edit/:uuid"
   title: _("Edit")
   editing: true
   notificationTitle: _("Edit system.")
-  component: omv-services-wol-system-form-page
+  component: omv-services-wol-form-page
