@@ -205,6 +205,10 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
         $hour = intval($params['standbyhour']);
         $min = intval($params['standbyminute']);
         $time = strtotime(sprintf('%s:%s', $hour, $min));
+        $now = time();
+        if ($now >= $time) {
+            $time += (60 * 60 * 24);
+        }
 
         $cmdArgs = [];
         $cmdArgs[] = '-a';
