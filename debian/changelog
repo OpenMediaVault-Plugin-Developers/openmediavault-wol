@@ -1,3 +1,9 @@
+openmediavault-wol (6.1.1) stable; urgency=low
+
+  * Add 24 hours to rtcwake time if time selected is in past
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 08 Aug 2022 11:53:07 -0500
+
 openmediavault-wol (6.1) stable; urgency=low
 
   * Move rtcwake tab to button

@@ -136,6 +136,7 @@ data:
                 name: standbyhour
                 label: _("Standby hour")
                 value: ""
+                hint: _("If a time in the past is selected, 24 hours will automatically be added")
                 store:
                   data:
                     - ["0", "0"]
