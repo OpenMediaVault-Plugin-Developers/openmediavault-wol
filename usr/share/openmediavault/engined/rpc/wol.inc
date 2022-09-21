@@ -216,6 +216,10 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = sprintf('-m %s', $params['mode']);
 
         $cmd = new \OMV\System\Process('rtcwake', $cmdArgs);
-        $cmd->execute();
+        $cmd->setRedirect2to1();
+        $cmdLine = $cmd->getCommandLine();
+        if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {
+            throw new \OMV\ExecException($cmdLine, $output, $time, $now);
+        }
     }
 }

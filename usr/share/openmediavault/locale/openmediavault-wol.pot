@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 21:09-0600\n"
+"POT-Creation-Date: 2022-08-08 11:54-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,6 +44,12 @@ msgstr ""
 msgid "IP address"
 msgstr ""
 
+msgid "If a time in the past is selected, 24 hours will automatically be added"
+msgstr ""
+
+msgid "Invalid mac address format"
+msgstr ""
+
 msgid "MAC Address"
 msgstr ""
 
@@ -53,7 +59,13 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+msgid "No - Don"
+msgstr ""
+
 msgid "No - Don't suspend. Sets RTC wakeup time only."
+msgstr ""
+
+msgid "On - Don"
 msgstr ""
 
 msgid "On - Don't suspend but read RTC device until alarm time appears. This mode is useful for debugging."
@@ -66,6 +78,12 @@ msgid "Rtcwake"
 msgstr ""
 
 msgid "Scan"
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr ""
+
+msgid "Schedule rtcwake ..."
 msgstr ""
 
 msgid "Send"
