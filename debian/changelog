@@ -1,3 +1,10 @@
+openmediavault-wol (6.1.3) stable; urgency=low
+
+  * Use default network interface to fix multiple network interface
+    systems where some may not be used
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 22 Oct 2022 10:54:03 -0500
+
 openmediavault-wol (6.1.2) stable; urgency=low
 
   * Improve scan
