@@ -46,31 +46,20 @@ data:
         tooltip: _("Scan")
         icon: mdi:magnify-plus-outline
         execute:
-          type: formDialog
-          formDialog:
-            title: _('Scanning network for systems to add...')
-            fields:
-              - type: select
-                name: deviceName
-                label: _('Device')
-                textField: devicename
-                valueField: devicename
-                store:
-                  proxy:
-                    service: Network
-                    get:
-                      method: enumerateConfiguredDevices
-                validators:
-                  required: false
-            buttons:
-              submit:
-                text: _('Scan')
-                execute:
-                  type: request
-                  request:
-                    service: Wol
-                    method: doScan
-              successUrl: /services/wol
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Scan ...")
+              startOnInit: true
+              request:
+                service: Wol
+                method: doScan
+                params:
+                  nic: "none"
+              buttons:
+                stop:
+                  hidden: true
+            successUrl: /services/wol
       - type: iconButton
         tooltip: _("Send")
         icon: mdi:download-network-outline

@@ -79,8 +79,7 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
         $isNew = $object->isNew();
         $db = \OMV\Config\Database::getInstance();
         if (TRUE === $isNew) {
-            // Check uniqueness - name, mac, ip
-            $db->assertIsUnique($object, 'name');
+            // Check uniqueness - mac, ip
             $db->assertIsUnique($object, 'mac');
             $db->assertIsUnique($object, 'ip');
         }
@@ -168,30 +167,51 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ['role' => OMV_ROLE_ADMINISTRATOR]);
-
-        $cmdArgs = [];
-        $cmdArgs = '-m';
-        if (!empty($params['deviceName'])) {
-            $cmdArgs = sprintf('-i %s', $params['deviceName']);
+        // Create a background process.
+        $bgStatusFilename = $this->createBgProcStatus();
+        $pid = $this->fork();
+        if ($pid > 0) { // Parent process.
+            $this->initializeBgProcStatus($bgStatusFilename, $pid);
+            return $bgStatusFilename;
         }
-        $cmd = new \OMV\System\Process('nast', $cmdArgs);
-        $cmd->execute($output);
-
+        // Child process.
+        try {
+            $bgOutputFilename = $this->createBgProcOutput();
+            $this->updateBgProcStatus($bgStatusFilename, 'outputfilename', $bgOutputFilename);
+            // Execute command.
+            $cmdArgs = [];
+            $cmdArgs[] = 'nast';
+            $cmdArgs[] = '-m';
+            if ($params['nic'] !== 'none') {
+                $cmdArgs[] = sprintf('--interface %s', $params['deviceName']);
+            }
+            $cmdArgs[] = '2>&1';
+            $cmd = implode($cmdArgs, ' ');
+            $this->exec($cmd, $output, $bgOutputFilename);
+            // Finalize the background process.
+            $this->finalizeBgProcStatus($bgStatusFilename, $output);
+        } catch(\Exception $e) {
+            $this->finalizeBgProcStatus($bgStatusFilename, '', $e);
+            exit(1);
+        }
+        // Add systems
         foreach ($output as $line) {
             if( substr($line,2,1) != ':' ) {
                 continue;
             }
             $pieces = explode(' ', str_replace('(', '', str_replace(')', '', $line)));
-
             if( trim($pieces[2]) == '' ) {
                 $pieces[2] = gettext("n/a");
             }
-            $this->callMethod('setSystem', [
-                'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
-                'name' => trim($pieces[2]),
-                'mac'  => trim($pieces[0]),
-                'ip'   => trim($pieces[1])
-            ], $context);
+            try {
+                $this->callMethod('setSystem', [
+                    'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
+                    'name' => trim($pieces[2]),
+                    'mac' => trim($pieces[0]),
+                    'ip' => trim($pieces[1])
+                ], $context);
+            } catch(\Exception $e) {
+            }
         }
     }
 
