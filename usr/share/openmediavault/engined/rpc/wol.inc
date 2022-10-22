@@ -181,11 +181,8 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
             // Execute command.
             $cmdArgs = [];
             $cmdArgs[] = 'nast';
-            $cmdArgs[] = '-m';
-            if ($params['nic'] !== 'none') {
-                $cmdArgs[] = sprintf('--interface %s', $params['deviceName']);
-            }
-            $cmdArgs[] = '2>&1';
+            $cmdArgs[] = '--host-list';
+            $cmdArgs[] = '--interface $(ip route show | awk \'$1 == "default" { print $5 }\')';
             $cmd = implode($cmdArgs, ' ');
             $this->exec($cmd, $output, $bgOutputFilename);
             // Finalize the background process.
