@@ -1,3 +1,9 @@
+openmediavault-wol (6.1.2) stable; urgency=low
+
+  * Improve scan
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 22 Oct 2022 10:31:51 -0500
+
 openmediavault-wol (6.1.1) stable; urgency=low
 
   * Add 24 hours to rtcwake time if time selected is in past
