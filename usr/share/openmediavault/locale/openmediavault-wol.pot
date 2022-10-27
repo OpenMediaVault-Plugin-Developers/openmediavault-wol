@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-08 11:54-0500\n"
+"POT-Creation-Date: 2022-10-27 12:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "Are you sure you want to enter standy mode?"
-msgstr ""
 
 msgid "Create"
 msgstr ""
@@ -33,9 +30,6 @@ msgid "Edit"
 msgstr ""
 
 msgid "Edit system."
-msgstr ""
-
-msgid "Entering standby mode..."
 msgstr ""
 
 msgid "IP Address"
@@ -59,13 +53,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "No - Don"
-msgstr ""
-
 msgid "No - Don't suspend. Sets RTC wakeup time only."
-msgstr ""
-
-msgid "On - Don"
 msgstr ""
 
 msgid "On - Don't suspend but read RTC device until alarm time appears. This mode is useful for debugging."
@@ -74,10 +62,10 @@ msgstr ""
 msgid "Poweroff - ACPI state S5"
 msgstr ""
 
-msgid "Rtcwake"
+msgid "Scan"
 msgstr ""
 
-msgid "Scan"
+msgid "Scan ..."
 msgstr ""
 
 msgid "Schedule rtcwake"
@@ -90,9 +78,6 @@ msgid "Send"
 msgstr ""
 
 msgid "Send packet"
-msgstr ""
-
-msgid "Standby"
 msgstr ""
 
 msgid "Standby - ACPI state S1"
@@ -111,9 +96,6 @@ msgid "Suspend-to-Disk - ACPI state S4"
 msgstr ""
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr ""
-
-msgid "Systems"
 msgstr ""
 
 msgid "WOL"
