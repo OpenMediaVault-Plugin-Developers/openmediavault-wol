@@ -8,18 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 21:09-0600\n"
-"PO-Revision-Date: 2021-11-21 03:09+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Are you sure you want to enter standy mode?"
-msgstr "Valóban készenléti állapotba helyezendő a rendszer?"
 
 msgid "Create"
 msgstr ""
@@ -36,13 +33,17 @@ msgstr ""
 msgid "Edit system."
 msgstr ""
 
-msgid "Entering standby mode..."
-msgstr "Készenléti állapotba helyezés…"
-
 msgid "IP Address"
 msgstr "IP-cím"
 
 msgid "IP address"
+msgstr ""
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr ""
+
+msgid "Invalid mac address format"
 msgstr ""
 
 msgid "MAC Address"
@@ -65,20 +66,23 @@ msgstr "Bekapcsolva – Nincs hibernálás, azonban az RTC-eszköz olvasásra ke
 msgid "Poweroff - ACPI state S5"
 msgstr "Kikapcsolás – S5-ös ACPI-állapot"
 
-msgid "Rtcwake"
-msgstr "rtcwake"
-
 msgid "Scan"
 msgstr "Letapogatás"
+
+msgid "Scan ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr ""
+
+msgid "Schedule rtcwake ..."
+msgstr ""
 
 msgid "Send"
 msgstr "Küldés"
 
 msgid "Send packet"
 msgstr ""
-
-msgid "Standby"
-msgstr "Készenlét"
 
 msgid "Standby - ACPI state S1"
 msgstr "Készenléti állapot – S1-es ACPI-állapot"
@@ -97,9 +101,6 @@ msgstr "Hibernálás – S4-es ACPI-állapot"
 
 msgid "Suspend-to-RAM - ACPI state S3"
 msgstr "Felfüggesztés – S3-as ACPI-állapot"
-
-msgid "Systems"
-msgstr "Rendszerek"
 
 msgid "WOL"
 msgstr "WOL"

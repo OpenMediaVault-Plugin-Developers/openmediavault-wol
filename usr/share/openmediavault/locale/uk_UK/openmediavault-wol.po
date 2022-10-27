@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
-# zubr139, 2016
+# zubr139, 2016,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 21:09-0600\n"
-"PO-Revision-Date: 2021-11-21 03:09+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: zubr139, 2016,2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,41 +18,42 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-msgid "Are you sure you want to enter standy mode?"
-msgstr ""
-
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 msgid "Created system."
 msgstr ""
 
 msgid "Device"
-msgstr ""
+msgstr "Пристрій"
 
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 msgid "Edit system."
-msgstr ""
-
-msgid "Entering standby mode..."
-msgstr ""
+msgstr "Редагувати систему."
 
 msgid "IP Address"
-msgstr ""
+msgstr "IP Адреса"
 
 msgid "IP address"
+msgstr "IP адреса"
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr ""
+
+msgid "Invalid mac address format"
 msgstr ""
 
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC Адреса"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC адреса"
 
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
 msgstr ""
@@ -65,19 +66,22 @@ msgstr ""
 msgid "Poweroff - ACPI state S5"
 msgstr ""
 
-msgid "Rtcwake"
+msgid "Scan"
 msgstr ""
 
-msgid "Scan"
+msgid "Scan ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr ""
+
+msgid "Schedule rtcwake ..."
 msgstr ""
 
 msgid "Send"
 msgstr ""
 
 msgid "Send packet"
-msgstr ""
-
-msgid "Standby"
 msgstr ""
 
 msgid "Standby - ACPI state S1"
@@ -96,9 +100,6 @@ msgid "Suspend-to-Disk - ACPI state S4"
 msgstr ""
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr ""
-
-msgid "Systems"
 msgstr ""
 
 msgid "WOL"

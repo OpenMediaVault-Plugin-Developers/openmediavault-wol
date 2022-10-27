@@ -10,18 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 21:09-0600\n"
-"PO-Revision-Date: 2021-11-21 03:09+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2019\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
-
-msgid "Are you sure you want to enter standy mode?"
-msgstr "Вы действительно хотите перейти в режим ожидания?"
 
 msgid "Create"
 msgstr ""
@@ -38,13 +35,17 @@ msgstr ""
 msgid "Edit system."
 msgstr ""
 
-msgid "Entering standby mode..."
-msgstr "Переход в режим ожидания ..."
-
 msgid "IP Address"
 msgstr "IP-адрес"
 
 msgid "IP address"
+msgstr ""
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr ""
+
+msgid "Invalid mac address format"
 msgstr ""
 
 msgid "MAC Address"
@@ -67,20 +68,23 @@ msgstr "Вкл. - Не приостанавливать, а считывать �
 msgid "Poweroff - ACPI state S5"
 msgstr "Выключение - состояние ACPI S5"
 
-msgid "Rtcwake"
-msgstr "Войти в состояние сна системы до указанного времени активации"
-
 msgid "Scan"
 msgstr "Сканирование"
+
+msgid "Scan ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr ""
+
+msgid "Schedule rtcwake ..."
+msgstr ""
 
 msgid "Send"
 msgstr "Послать"
 
 msgid "Send packet"
 msgstr ""
-
-msgid "Standby"
-msgstr "Ожидание"
 
 msgid "Standby - ACPI state S1"
 msgstr "Режим ожидания - состояние ACPI S1"
@@ -99,9 +103,6 @@ msgstr "Сохранить на диск - состояние ACPI S4"
 
 msgid "Suspend-to-RAM - ACPI state S3"
 msgstr "Сохранить на диск - состояние ACPI S3"
-
-msgid "Systems"
-msgstr "Системы"
 
 msgid "WOL"
 msgstr "WOL"

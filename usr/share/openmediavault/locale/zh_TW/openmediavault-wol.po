@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2014,2017
+# kochin <kochinc@outlook.com>, 2014,2017,2021-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 21:09-0600\n"
-"PO-Revision-Date: 2021-11-21 03:09+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2014,2017,2021-2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,38 +18,39 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Are you sure you want to enter standy mode?"
-msgstr "確定要進入待機狀態嗎？"
-
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 msgid "Created system."
-msgstr ""
+msgstr "已建立系統。"
 
 msgid "Device"
-msgstr ""
+msgstr "裝置"
 
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 msgid "Edit system."
-msgstr ""
-
-msgid "Entering standby mode..."
-msgstr "進入待機狀態 ..."
+msgstr "編輯系統。"
 
 msgid "IP Address"
 msgstr "IP 地址"
 
 msgid "IP address"
-msgstr ""
+msgstr "IP 地址"
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr "若選擇的時間已過，則會自動加 24 小時。"
+
+msgid "Invalid mac address format"
+msgstr "無效的 mac 地址格式"
 
 msgid "MAC Address"
 msgstr "MAC 地址"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC 地址"
 
 msgid "Name"
 msgstr "名稱"
@@ -65,41 +66,41 @@ msgstr "開啟 - 不要暫停，但讀取 RTC 裝置直到警鈴時間出現。�
 msgid "Poweroff - ACPI state S5"
 msgstr "關機 - ACPI 狀態 S5"
 
-msgid "Rtcwake"
-msgstr "Rtcwake"
-
 msgid "Scan"
 msgstr "掃描"
+
+msgid "Scan ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr "預定 rtcwake 時間"
+
+msgid "Schedule rtcwake ..."
+msgstr "預定 rtcwake 時間 ..."
 
 msgid "Send"
 msgstr "送出"
 
 msgid "Send packet"
-msgstr ""
-
-msgid "Standby"
-msgstr "待機"
+msgstr "送出封包"
 
 msgid "Standby - ACPI state S1"
 msgstr "待機 - ACPI 狀態 S1"
 
 msgid "Standby hour"
-msgstr ""
+msgstr "待機時數"
 
 msgid "Standby minute"
-msgstr ""
+msgstr "待機分鐘"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "待機模式"
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr "暫停到磁碟 - ACPI 狀態 S4"
 
 msgid "Suspend-to-RAM - ACPI state S3"
 msgstr "暫停到 RAM - ACPI 狀態 S3"
-
-msgid "Systems"
-msgstr "系統"
 
 msgid "WOL"
 msgstr "網路喚醒"

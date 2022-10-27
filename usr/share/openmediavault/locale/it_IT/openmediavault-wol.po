@@ -8,18 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 21:09-0600\n"
-"PO-Revision-Date: 2021-11-21 03:09+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>, 2014-2015\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Are you sure you want to enter standy mode?"
-msgstr "Sei sicuro di voler entrare in standby?"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Create"
 msgstr ""
@@ -36,13 +33,17 @@ msgstr ""
 msgid "Edit system."
 msgstr ""
 
-msgid "Entering standby mode..."
-msgstr "Attivazione modalità standby ..."
-
 msgid "IP Address"
 msgstr "Indirizzo IP"
 
 msgid "IP address"
+msgstr ""
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr ""
+
+msgid "Invalid mac address format"
 msgstr ""
 
 msgid "MAC Address"
@@ -65,20 +66,23 @@ msgstr "Attivo - Non sospendere ma leggi il dispositivo RTC finché non compare 
 msgid "Poweroff - ACPI state S5"
 msgstr "Spegni - stato ACPI S5"
 
-msgid "Rtcwake"
-msgstr "Rtcwake"
-
 msgid "Scan"
 msgstr "Scansione"
+
+msgid "Scan ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr ""
+
+msgid "Schedule rtcwake ..."
+msgstr ""
 
 msgid "Send"
 msgstr "Invia"
 
 msgid "Send packet"
 msgstr ""
-
-msgid "Standby"
-msgstr "Standby"
 
 msgid "Standby - ACPI state S1"
 msgstr "Standby - Stato ACPI S1"
@@ -97,9 +101,6 @@ msgstr "Suspend-to-Disk - Stato ACPI S4"
 
 msgid "Suspend-to-RAM - ACPI state S3"
 msgstr "Suspend-to-RAM - Stato ACPI S3"
-
-msgid "Systems"
-msgstr "Sistemi"
 
 msgid "WOL"
 msgstr "WOL"
