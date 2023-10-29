@@ -3,7 +3,7 @@ Section: net
 XB-Plugin-Section: utilities
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>= 12 )
+Build-Depends: debhelper (>= 13)
 Standards-Version: 4.3.0
 Homepage: http://omv-extras.org/
 
@@ -11,7 +11,7 @@ Package: openmediavault-wol
 Architecture: all
 Depends: etherwake,
          nast,
-         openmediavault (>= 6),
+         openmediavault (>= 7),
          util-linux,
          wakeonlan,
          ${misc:Depends}
