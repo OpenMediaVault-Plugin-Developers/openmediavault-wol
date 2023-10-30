@@ -183,7 +183,7 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
             $cmdArgs[] = 'nast';
             $cmdArgs[] = '--host-list';
             $cmdArgs[] = '--interface $(ip route show | awk \'$1 == "default" { print $5 }\')';
-            $cmd = implode($cmdArgs, ' ');
+            $cmd = implode(' ', $cmdArgs);
             $this->exec($cmd, $output, $bgOutputFilename);
             // Finalize the background process.
             $this->finalizeBgProcStatus($bgStatusFilename, $output);
