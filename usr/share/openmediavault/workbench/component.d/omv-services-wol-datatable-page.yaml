@@ -46,20 +46,13 @@ data:
         tooltip: _("Scan")
         icon: mdi:magnify-plus-outline
         execute:
-          type: taskDialog
-          taskDialog:
-            config:
-              title: _("Scan ...")
-              startOnInit: true
-              request:
-                service: Wol
-                method: doScan
-                params:
-                  nic: "none"
-              buttons:
-                stop:
-                  hidden: true
-            successUrl: /services/wol
+          type: request
+          request:
+            service: Wol
+            method: doScan
+            task: true
+            progressMessage: _("Scanning ...")
+            successNotification: _("Scan complete.")
       - type: iconButton
         tooltip: _("Send")
         icon: mdi:download-network-outline
@@ -100,7 +93,8 @@ data:
                   request:
                     service: Wol
                     method: doSend
-              successUrl: /services/wol
+                    progressMessage: _("Sending packet ...")
+                    successNotification: _("Packet has been sent.")
       - type: iconButton
         tooltip: _("Schedule rtcwake")
         icon: mdi:alarm-check
@@ -226,4 +220,3 @@ data:
                   request:
                     service: Wol
                     method: doWake
-                successUrl: /services/wol

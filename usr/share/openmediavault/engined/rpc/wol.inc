@@ -167,49 +167,55 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ['role' => OMV_ROLE_ADMINISTRATOR]);
-        // Create a background process.
-        $bgStatusFilename = $this->createBgProcStatus();
-        $pid = $this->fork();
-        if ($pid > 0) { // Parent process.
-            $this->initializeBgProcStatus($bgStatusFilename, $pid);
-            return $bgStatusFilename;
-        }
-        // Child process.
-        try {
-            $bgOutputFilename = $this->createBgProcOutput();
-            $this->updateBgProcStatus($bgStatusFilename, 'outputfilename', $bgOutputFilename);
-            // Execute command.
-            $cmdArgs = [];
-            $cmdArgs[] = 'nast';
-            $cmdArgs[] = '--host-list';
-            $cmdArgs[] = '--interface $(ip route show | awk \'$1 == "default" { print $5 }\')';
-            $cmd = implode(' ', $cmdArgs);
-            $this->exec($cmd, $output, $bgOutputFilename);
-            // Finalize the background process.
-            $this->finalizeBgProcStatus($bgStatusFilename, $output);
-        } catch(\Exception $e) {
-            $this->finalizeBgProcStatus($bgStatusFilename, '', $e);
-            exit(1);
-        }
-        // Add systems
-        foreach ($output as $line) {
-            if( substr($line,2,1) != ':' ) {
-                continue;
+        // get default network adapter
+        $cmdArgs = [];
+        $cmdArgs[] = 'ip';
+        $cmdArgs[] = '-json';
+        $cmdArgs[] = 'route';
+        $cmdArgs[] = 'show';
+        $cmdArgs[] = '| jq';
+        $cmdArgs[] = '--raw-output';
+        $cmdArgs[] = '\'.[] | select(.dst == "default") | .dev\'';
+        $cmd = new \OMV\System\Process($cmdArgs);
+        $cmd->execute($output, $exitStatus);
+        $defaultnic = $output[0];
+        return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
+            use ($defaultnic, $context) {
+                $cmdArgs = [];
+                $cmdArgs[] = 'nast';
+                $cmdArgs[] = '--host-list';
+                $cmdArgs[] = sprintf('--interface %s', $defaultnic);
+                $cmdArgs[] = "| awk 'NF'";
+                $cmdArgs[] = '| grep -vE "Nast V\.|Mapping the Lan|^MAC address|========|This is localhost|Finished"';
+                $cmd = new \OMV\System\Process($cmdArgs);
+                $cmd->setRedirect2to1();
+                $cmdLine = $cmd->getCommandLine();
+                if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {
+                    throw new \OMV\ExecException($cmdLine, $output);
+                }
+                // Add systems
+                foreach ($output as $line) {
+                    // Check if the line contains system information
+                    if (preg_match('/^(\S+)\s+(\S+)\s+\((.*?)\)/', $line, $matches)) {
+                        // Extract system details
+                        $mac = trim($matches[1]);
+                        $ip = trim($matches[2]);
+
+                        $name = trim($matches[3]) ?: gettext("n/a");
+                        try {
+                            $this->callMethod('setSystem', [
+                                'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
+                                'name' => $name,
+                                'mac' => $mac,
+                                'ip' => $ip
+                            ], $context);
+                        } catch(\Exception $e) {
+                        }
+                    }
+                }
+                return $output;
             }
-            $pieces = explode(' ', str_replace('(', '', str_replace(')', '', $line)));
-            if( trim($pieces[2]) == '' ) {
-                $pieces[2] = gettext("n/a");
-            }
-            try {
-                $this->callMethod('setSystem', [
-                    'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
-                    'name' => trim($pieces[2]),
-                    'mac' => trim($pieces[0]),
-                    'ip' => trim($pieces[1])
-                ], $context);
-            } catch(\Exception $e) {
-            }
-        }
+        );
     }
 
     public function doWake($params, $context)
