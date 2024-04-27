@@ -1,92 +1,122 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
+# Axel Cantenys, 2017
+# niko2 <nicolas@zosk.fr>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-11-14 19:51+0000\n"
-"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/openmediavault-wol/language/fr/)\n"
+"POT-Creation-Date: 2024-04-27 11:41-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: niko2 <nicolas@zosk.fr>, 2017\n"
+"Language-Team: French (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-msgid "Add system"
+msgid "Create"
 msgstr ""
 
-msgid "Are you sure you want to enter standy mode?"
+msgid "Created system."
 msgstr ""
 
-msgid "Confirmation"
+msgid "Device"
 msgstr ""
 
-msgid "Edit system"
+msgid "Edit"
 msgstr ""
 
-msgid "Entering standby mode..."
+msgid "Edit system."
 msgstr ""
 
 msgid "IP Address"
+msgstr "Adresse IP"
+
+msgid "IP address"
+msgstr ""
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr ""
+
+msgid "Invalid mac address format"
 msgstr ""
 
 msgid "MAC Address"
+msgstr "Adresse MAC"
+
+msgid "MAC address"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
-msgstr ""
+msgstr "Non - Ne pas suspendre. Définit l'heure de réveil de l'horloge temps réel (RTC) uniquement."
 
 msgid ""
 "On - Don't suspend but read RTC device until alarm time appears. This mode "
 "is useful for debugging."
+msgstr "Activer - Ne pas suspendre mais lit l’horloge temps réel (RTC) jusqu'à ce que l'heure d'alarme apparaisse. Ce mode est utile pour le débogage."
+
+msgid "Packet has been sent."
 msgstr ""
 
 msgid "Poweroff - ACPI state S5"
-msgstr ""
-
-msgid "Rtcwake"
-msgstr ""
+msgstr "Éteindre - Statut ACPI S5"
 
 msgid "Scan"
+msgstr "Scanner"
+
+msgid "Scan ..."
 msgstr ""
 
-msgid "Scanning network for systems to add..."
+msgid "Scan complete."
+msgstr ""
+
+msgid "Scanning ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr ""
+
+msgid "Schedule rtcwake ..."
 msgstr ""
 
 msgid "Send"
+msgstr "Envoyer"
+
+msgid "Send packet"
 msgstr ""
 
-msgid "Settings"
-msgstr ""
-
-msgid "Standby"
+msgid "Sending packet ..."
 msgstr ""
 
 msgid "Standby - ACPI state S1"
+msgstr "Suspendre - État ACPI S1"
+
+msgid "Standby hour"
 msgstr ""
 
-msgid "Standby Mode"
+msgid "Standby minute"
 msgstr ""
 
-msgid "Standby Time"
+msgid "Standby mode"
 msgstr ""
 
 msgid "Suspend-to-Disk - ACPI state S4"
-msgstr ""
+msgstr "Mise en veille prolongée - État ACPI S4"
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr ""
-
-msgid "Systems"
-msgstr ""
+msgstr "Mise en veille - État ACPI S3"
 
 msgid "WOL"
-msgstr ""
+msgstr "Réveil par le réseau"
+
+msgid "n/a"
+msgstr "N/A"

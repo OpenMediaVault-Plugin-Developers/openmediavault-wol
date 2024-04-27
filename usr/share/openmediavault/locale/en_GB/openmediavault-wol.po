@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
-# Andi Chandler <andi@gowling.com>, 2015,2017
+# Andi Chandler <andi@gowling.com>, 2015,2017,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"POT-Creation-Date: 2024-04-27 11:41-0500\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>, 2015,2017\n"
-"Language-Team: English (United Kingdom) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/en_GB/)\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2015,2017,2023\n"
+"Language-Team: English (United Kingdom) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,38 +19,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Create"
-msgstr ""
+msgstr "Create"
 
 msgid "Created system."
-msgstr ""
+msgstr "Created system."
 
 msgid "Device"
-msgstr ""
+msgstr "Device"
 
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
 msgid "Edit system."
-msgstr ""
+msgstr "Edit system."
 
 msgid "IP Address"
 msgstr "IP Address"
 
 msgid "IP address"
-msgstr ""
+msgstr "IP address"
 
 msgid ""
 "If a time in the past is selected, 24 hours will automatically be added"
-msgstr ""
+msgstr "If a time in the past is selected, 24 hours will automatically be added"
 
 msgid "Invalid mac address format"
-msgstr ""
+msgstr "Invalid MAC address format"
 
 msgid "MAC Address"
 msgstr "MAC Address"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC address"
 
 msgid "Name"
 msgstr "Name"
@@ -63,6 +63,9 @@ msgid ""
 "is useful for debugging."
 msgstr "On - Don't suspend but read RTC device until alarm time appears. This mode is useful for debugging."
 
+msgid "Packet has been sent."
+msgstr ""
+
 msgid "Poweroff - ACPI state S5"
 msgstr "Poweroff - ACPI state S5"
 
@@ -70,31 +73,40 @@ msgid "Scan"
 msgstr "Scan"
 
 msgid "Scan ..."
+msgstr "Scan ..."
+
+msgid "Scan complete."
+msgstr ""
+
+msgid "Scanning ..."
 msgstr ""
 
 msgid "Schedule rtcwake"
-msgstr ""
+msgstr "Schedule rtcwake"
 
 msgid "Schedule rtcwake ..."
-msgstr ""
+msgstr "Schedule rtcwake ..."
 
 msgid "Send"
 msgstr "Send"
 
 msgid "Send packet"
+msgstr "Send packet"
+
+msgid "Sending packet ..."
 msgstr ""
 
 msgid "Standby - ACPI state S1"
 msgstr "Standby - ACPI state S1"
 
 msgid "Standby hour"
-msgstr ""
+msgstr "Standby hour"
 
 msgid "Standby minute"
-msgstr ""
+msgstr "Standby minute"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Standby mode"
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr "Suspend-to-Disk - ACPI state S4"

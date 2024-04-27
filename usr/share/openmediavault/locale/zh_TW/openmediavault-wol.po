@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 12:28-0500\n"
+"POT-Creation-Date: 2024-04-27 11:41-0500\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2014,2017,2021-2022\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,6 +63,9 @@ msgid ""
 "is useful for debugging."
 msgstr "開啟 - 不要暫停，但讀取 RTC 裝置直到警鈴時間出現。此狀態對偵錯時有用。"
 
+msgid "Packet has been sent."
+msgstr ""
+
 msgid "Poweroff - ACPI state S5"
 msgstr "關機 - ACPI 狀態 S5"
 
@@ -70,6 +73,12 @@ msgid "Scan"
 msgstr "掃描"
 
 msgid "Scan ..."
+msgstr "掃瞄 ..."
+
+msgid "Scan complete."
+msgstr ""
+
+msgid "Scanning ..."
 msgstr ""
 
 msgid "Schedule rtcwake"
@@ -83,6 +92,9 @@ msgstr "送出"
 
 msgid "Send packet"
 msgstr "送出封包"
+
+msgid "Sending packet ..."
+msgstr ""
 
 msgid "Standby - ACPI state S1"
 msgstr "待機 - ACPI 狀態 S1"

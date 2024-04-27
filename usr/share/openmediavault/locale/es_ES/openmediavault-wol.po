@@ -1,43 +1,56 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014,2017,2021-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-21 10:35-0500\n"
-"PO-Revision-Date: 2014-11-16 22:16+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault-wol/language/es_ES/)\n"
+"POT-Creation-Date: 2024-04-27 11:41-0500\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2014,2017,2021-2022\n"
+"Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-msgid "Add system"
-msgstr "Añadir equipos"
+msgid "Create"
+msgstr "Crear"
 
-msgid "Are you sure you want to enter standy mode?"
-msgstr "¿Esta seguro que desea entrar en modo standy?"
+msgid "Created system."
+msgstr "systema creado."
 
-msgid "Confirmation"
-msgstr "Confirmación"
+msgid "Device"
+msgstr "Dispositivo"
 
-msgid "Edit system"
+msgid "Edit"
 msgstr "Editar"
 
-msgid "Entering standby mode..."
-msgstr "Entrando en modo standy..."
+msgid "Edit system."
+msgstr "Editar sistema."
 
 msgid "IP Address"
 msgstr "IP"
 
+msgid "IP address"
+msgstr "Dirección IP"
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr "Si se selecciona una hora en el pasado, se agregarán automáticamente 24 horas"
+
+msgid "Invalid mac address format"
+msgstr "Formato de dirección MAC no válido"
+
 msgid "MAC Address"
 msgstr "MAC"
+
+msgid "MAC address"
+msgstr "Dirección MAC"
 
 msgid "Name"
 msgstr "Nombre"
@@ -50,35 +63,50 @@ msgid ""
 "is useful for debugging."
 msgstr "On - No suspender, pero mirar el dispositivo RTC hasta que la alarma aparezca. Este modo es útil para tareas de depuración."
 
+msgid "Packet has been sent."
+msgstr ""
+
 msgid "Poweroff - ACPI state S5"
 msgstr "Poweroff - ACPI Estado S5"
-
-msgid "Rtcwake"
-msgstr "Rtcwake"
 
 msgid "Scan"
 msgstr "Buscar"
 
-msgid "Scanning network for systems to add..."
-msgstr "Buscar en la red equipos a añadir..."
+msgid "Scan ..."
+msgstr "Escaneando ..."
+
+msgid "Scan complete."
+msgstr ""
+
+msgid "Scanning ..."
+msgstr ""
+
+msgid "Schedule rtcwake"
+msgstr "Programar rtcwake"
+
+msgid "Schedule rtcwake ..."
+msgstr "Programar rtcwake ..."
 
 msgid "Send"
 msgstr "Enviar"
 
-msgid "Settings"
-msgstr "Opciones"
+msgid "Send packet"
+msgstr "Enviar paquete"
 
-msgid "Standby"
-msgstr "Standby"
+msgid "Sending packet ..."
+msgstr ""
 
 msgid "Standby - ACPI state S1"
 msgstr "Standby - ACPI Estado S1"
 
-msgid "Standby Mode"
-msgstr "Standby Mode"
+msgid "Standby hour"
+msgstr "Hora de Stanby"
 
-msgid "Standby Time"
-msgstr "Standby Time"
+msgid "Standby minute"
+msgstr "Minuto de Standby"
+
+msgid "Standby mode"
+msgstr "Modo Standby"
 
 msgid "Suspend-to-Disk - ACPI state S4"
 msgstr "Suspend-to-Disk - ACPI Estado S4"
@@ -86,8 +114,8 @@ msgstr "Suspend-to-Disk - ACPI Estado S4"
 msgid "Suspend-to-RAM - ACPI state S3"
 msgstr "Suspend-to-RAM - ACPI Estado S3"
 
-msgid "Systems"
-msgstr "Equipos"
-
 msgid "WOL"
 msgstr "WOL"
+
+msgid "n/a"
+msgstr "n/d"
