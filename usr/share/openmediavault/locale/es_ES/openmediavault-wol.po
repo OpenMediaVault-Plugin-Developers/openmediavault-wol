@@ -64,7 +64,7 @@ msgid ""
 msgstr "On - No suspender, pero mirar el dispositivo RTC hasta que la alarma aparezca. Este modo es útil para tareas de depuración."
 
 msgid "Packet has been sent."
-msgstr ""
+msgstr "Paquetes enviados."
 
 msgid "Poweroff - ACPI state S5"
 msgstr "Poweroff - ACPI Estado S5"
@@ -76,10 +76,10 @@ msgid "Scan ..."
 msgstr "Escaneando ..."
 
 msgid "Scan complete."
-msgstr ""
+msgstr "Escaneo Completo."
 
 msgid "Scanning ..."
-msgstr ""
+msgstr "Escaneando ..."
 
 msgid "Schedule rtcwake"
 msgstr "Programar rtcwake"
@@ -94,7 +94,7 @@ msgid "Send packet"
 msgstr "Enviar paquete"
 
 msgid "Sending packet ..."
-msgstr ""
+msgstr "Enviando Paquete ..."
 
 msgid "Standby - ACPI state S1"
 msgstr "Standby - ACPI Estado S1"

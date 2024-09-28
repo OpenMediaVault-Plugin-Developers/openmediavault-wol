@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2014,2017,2021-2022
+# kochin <kochinc@outlook.com>, 2014,2017,2021-2022,2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-27 11:41-0500\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2014,2017,2021-2022\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2014,2017,2021-2022,2024\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +64,7 @@ msgid ""
 msgstr "開啟 - 不要暫停，但讀取 RTC 裝置直到警鈴時間出現。此狀態對偵錯時有用。"
 
 msgid "Packet has been sent."
-msgstr ""
+msgstr "封包已送出。"
 
 msgid "Poweroff - ACPI state S5"
 msgstr "關機 - ACPI 狀態 S5"
@@ -76,10 +76,10 @@ msgid "Scan ..."
 msgstr "掃瞄 ..."
 
 msgid "Scan complete."
-msgstr ""
+msgstr "掃描完成。"
 
 msgid "Scanning ..."
-msgstr ""
+msgstr "掃瞄中 ..."
 
 msgid "Schedule rtcwake"
 msgstr "預定 rtcwake 時間"
@@ -91,10 +91,10 @@ msgid "Send"
 msgstr "送出"
 
 msgid "Send packet"
-msgstr "送出封包"
+msgstr "發送封包"
 
 msgid "Sending packet ..."
-msgstr ""
+msgstr "發送封包中 ..."
 
 msgid "Standby - ACPI state S1"
 msgstr "待機 - ACPI 狀態 S1"

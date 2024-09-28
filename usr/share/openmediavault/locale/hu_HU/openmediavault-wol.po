@@ -65,7 +65,7 @@ msgid ""
 msgstr "Bekapcsolva – Nincs hibernálás, azonban az RTC-eszköz olvasásra kerül az ébresztési idő bekövetkeztéig.  Ez a mód nagyon hasznos hibakeresésre."
 
 msgid "Packet has been sent."
-msgstr ""
+msgstr "A csomag el lett küldve."
 
 msgid "Poweroff - ACPI state S5"
 msgstr "Kikapcsolás – S5-ös ACPI-állapot"
@@ -77,10 +77,10 @@ msgid "Scan ..."
 msgstr "Letapogatás…"
 
 msgid "Scan complete."
-msgstr ""
+msgstr "A letapogatás elkészült."
 
 msgid "Scanning ..."
-msgstr ""
+msgstr "Letapogatás…"
 
 msgid "Schedule rtcwake"
 msgstr "Rtcwake időzítése"
@@ -95,7 +95,7 @@ msgid "Send packet"
 msgstr "Csomag küldése"
 
 msgid "Sending packet ..."
-msgstr ""
+msgstr "Csomag küldése…"
 
 msgid "Standby - ACPI state S1"
 msgstr "Készenléti állapot – S1-es ACPI-állapot"
