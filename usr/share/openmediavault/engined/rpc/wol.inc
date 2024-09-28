@@ -72,6 +72,9 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodContext($context, ['role' => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, 'rpc.wol.setsystem');
+        // format mac address
+        $mac = preg_replace('/[^a-fA-F0-9]/', '', $params['mac']);
+        $params['mac'] = implode(':', str_split($mac, 2));
         // Prepare the configuration object.
         $object = new \OMV\Config\ConfigObject('conf.service.wol.system');
         $object->setAssoc($params);
@@ -142,6 +145,8 @@ class OMVRpcServiceWol extends \OMV\Rpc\ServiceAbstract
         $object = $db->get('conf.service.wol.system', $params['uuid']);
 
         $mac = $object->get('mac');
+        $mac = preg_replace('/[^a-fA-F0-9]/', '', $mac);
+        $mac = implode(':', str_split($mac, 2));
         $ip = $object->get('ip');
         $cmd1 = false;
         $cmd2 = false;
