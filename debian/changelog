@@ -1,3 +1,9 @@
+openmediavault-wol (7.0.2) stable; urgency=low
+
+  * Improve mac address handling
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 28 Sep 2024 08:51:34 -0500
+
 openmediavault-wol (7.0.1) stable; urgency=low
 
   * Improve host scan
