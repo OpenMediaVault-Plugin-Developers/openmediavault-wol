@@ -11,7 +11,7 @@ Package: openmediavault-wol
 Architecture: all
 Depends: etherwake,
          nast,
-         openmediavault (>= 7),
+         openmediavault (>= 8),
          util-linux,
          wakeonlan,
          ${misc:Depends}
