@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-wol package.
 # 
 # Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-27 11:41-0500\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,103 +19,103 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Create"
-msgstr ""
+msgstr "Aanmaken"
 
 msgid "Created system."
-msgstr ""
+msgstr "Systeem aanmaken."
 
 msgid "Device"
-msgstr ""
+msgstr "Apparaat"
 
 msgid "Edit"
-msgstr ""
+msgstr "Bewerken"
 
 msgid "Edit system."
-msgstr ""
+msgstr "Systeem bewerken."
 
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adres"
 
 msgid "IP address"
-msgstr ""
+msgstr "IP-adres"
 
 msgid ""
 "If a time in the past is selected, 24 hours will automatically be added"
-msgstr ""
+msgstr "Als er een tijd in het verleden wordt geselecteerd, wordt er automatisch 24 uur toegevoegd"
 
 msgid "Invalid mac address format"
-msgstr ""
+msgstr "Ongeldig mac-adres formaat"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-adres"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC-adres"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "No - Don't suspend. Sets RTC wakeup time only."
-msgstr ""
+msgstr "Nee - Geen slaapstand. Stelt alleen de RTC-wake-uptijd in."
 
 msgid ""
 "On - Don't suspend but read RTC device until alarm time appears. This mode "
 "is useful for debugging."
-msgstr ""
+msgstr "Aan - Geen slaapstand maar RTC-apparaat lezen totdat alarmtijd verschijnt. Deze modus is handig voor foutopsporing."
 
 msgid "Packet has been sent."
-msgstr ""
+msgstr "Pakket is verzonden."
 
 msgid "Poweroff - ACPI state S5"
-msgstr ""
+msgstr "Uitschakelen - ACPI-staat S5"
 
 msgid "Scan"
-msgstr ""
+msgstr "Scannen"
 
 msgid "Scan ..."
-msgstr ""
+msgstr "Scannen…"
 
 msgid "Scan complete."
-msgstr ""
+msgstr "Scan voltooid."
 
 msgid "Scanning ..."
-msgstr ""
+msgstr "Scannen…"
 
 msgid "Schedule rtcwake"
-msgstr ""
+msgstr "Rtcwake plannen"
 
 msgid "Schedule rtcwake ..."
-msgstr ""
+msgstr "Rtcwake plannen…"
 
 msgid "Send"
-msgstr ""
+msgstr "Versturen"
 
 msgid "Send packet"
-msgstr ""
+msgstr "Pakket versturen"
 
 msgid "Sending packet ..."
-msgstr ""
+msgstr "Pakket versturen…"
 
 msgid "Standby - ACPI state S1"
-msgstr ""
+msgstr "Sluimerstand - ACPI-staat S1"
 
 msgid "Standby hour"
-msgstr ""
+msgstr "Sluimerstand uur"
 
 msgid "Standby minute"
-msgstr ""
+msgstr "Sluimerstand minuut"
 
 msgid "Standby mode"
-msgstr ""
+msgstr "Sluimerstandmodus"
 
 msgid "Suspend-to-Disk - ACPI state S4"
-msgstr ""
+msgstr "Slaapstand - ACPI-staat S4"
 
 msgid "Suspend-to-RAM - ACPI state S3"
-msgstr ""
+msgstr "Hybride slaapstand - ACPI-staat S3"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "n/a"
-msgstr ""
+msgstr "n.v.t."
