@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wol package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wol\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 01:31+0000\n"
+"PO-Revision-Date: 2014-07-21 15:36+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (Laos) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/lo_LA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo_LA\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Create"
+msgstr "ສ້າງ"
+
+msgid "Created system."
+msgstr "ສ້າງລະບົບແລ້ວ."
+
+msgid "Device"
+msgstr "ອຸປະກອນ"
+
+msgid "Edit"
+msgstr "ແກ້ໄຂ"
+
+msgid "Edit system."
+msgstr "ແກ້ໄຂລະບົບ."
+
+msgid "IP Address"
+msgstr "ທີ່ຢູ່ IP"
+
+msgid "IP address"
+msgstr "ທີ່ຢູ່ IP"
+
+msgid ""
+"If a time in the past is selected, 24 hours will automatically be added"
+msgstr "ຖ້າເລືອກເວລາໃນອະດີດ, ຈະເພີ່ມເວລາ 24 ຊົ່ວໂມງໃຫ້ໂດຍອັດຕະໂນມັດ"
+
+msgid "Invalid mac address format"
+msgstr "ຮູບແບບທີ່ຢູ່ MAC ບໍ່ຖືກຕ້ອງ"
+
+msgid "MAC Address"
+msgstr "ທີ່ຢູ່ MAC"
+
+msgid "MAC address"
+msgstr "ທີ່ຢູ່ MAC"
+
+msgid "Name"
+msgstr "ຊື່"
+
+msgid "No - Don't suspend. Sets RTC wakeup time only."
+msgstr "ບໍ່ - ບໍ່ພັກລະບົບ. ຕັ້ງຄ່າເວລາປຸກ RTC ເທົ່ານັ້ນ."
+
+msgid ""
+"On - Don't suspend but read RTC device until alarm time appears. This mode "
+"is useful for debugging."
+msgstr "ເປີດ - ບໍ່ພັກລະບົບ ແຕ່ໃຫ້ອ່ານຄ່າອຸປະກອນ RTC ຈົນກວ່າຈະຮອດເວລາປຸກ. ໂໝດນີ້ມີປະໂຫຍດສຳລັບການກວດສອບຂໍ້ຜິດພາດ."
+
+msgid "Packet has been sent."
+msgstr "ສົ່ງແພັກເກັດ (Packet) ແລ້ວ."
+
+msgid "Poweroff - ACPI state S5"
+msgstr "ປິດເຄື່ອງ - ສະຖານະ ACPI S5"
+
+msgid "Scan"
+msgstr "ສະແກນ"
+
+msgid "Scan complete."
+msgstr "ສະແກນສຳເລັດແລ້ວ."
+
+msgid "Scanning ..."
+msgstr "ກຳລັງສະແກນ ..."
+
+msgid "Schedule rtcwake"
+msgstr "ກຳນົດເວລາ rtcwake"
+
+msgid "Schedule rtcwake ..."
+msgstr "ກຳນົດເວລາ rtcwake ..."
+
+msgid "Send"
+msgstr "ສົ່ງ"
+
+msgid "Send packet"
+msgstr "ສົ່ງແພັກເກັດ"
+
+msgid "Sending packet ..."
+msgstr "ກຳລັງສົ່ງແພັກເກັດ ..."
+
+msgid "Standby - ACPI state S1"
+msgstr "ສະແຕນບາຍ - ສະຖານະ ACPI S1"
+
+msgid "Standby hour"
+msgstr "ຊົ່ວໂມງສະແຕນບາຍ"
+
+msgid "Standby minute"
+msgstr "ນາທີສະແຕນບາຍ"
+
+msgid "Standby mode"
+msgstr "ໂໝດສະແຕນບາຍ"
+
+msgid "Suspend-to-Disk - ACPI state S4"
+msgstr "ພັກລະບົບລົງດິສກ໌ (Suspend-to-Disk) - ສະຖານະ ACPI S4"
+
+msgid "Suspend-to-RAM - ACPI state S3"
+msgstr "ພັກລະບົບລົງແຣມ (Suspend-to-RAM) - ສະຖານະ ACPI S3"
+
+msgid "WOL"
+msgstr "WOL"
+
+msgid "n/a"
+msgstr "ບໍ່ມີຂໍ້ມູນ"

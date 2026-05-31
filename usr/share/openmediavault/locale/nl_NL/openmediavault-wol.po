@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 11:41-0500\n"
+"POT-Creation-Date: 2026-05-31 01:31+0000\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
 "Language-Team: Dutch (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/nl/)\n"
@@ -71,9 +71,6 @@ msgstr "Uitschakelen - ACPI-staat S5"
 
 msgid "Scan"
 msgstr "Scannen"
-
-msgid "Scan ..."
-msgstr "Scannen…"
 
 msgid "Scan complete."
 msgstr "Scan voltooid."

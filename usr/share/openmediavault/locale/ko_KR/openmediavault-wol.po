@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 11:41-0500\n"
+"POT-Creation-Date: 2026-05-31 01:31+0000\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
 "Last-Translator: Hyeonkyu Chu <hyeonkyu@gmail.com>, 2014\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/ko_KR/)\n"
@@ -71,9 +71,6 @@ msgstr "전원 끄기 - ACPI state S5"
 
 msgid "Scan"
 msgstr "찾기"
-
-msgid "Scan ..."
-msgstr ""
 
 msgid "Scan complete."
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 11:41-0500\n"
+"POT-Creation-Date: 2026-05-31 01:31+0000\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
 "Last-Translator: zubr139, 2016,2021\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/uk/)\n"
@@ -70,9 +70,6 @@ msgid "Poweroff - ACPI state S5"
 msgstr ""
 
 msgid "Scan"
-msgstr ""
-
-msgid "Scan ..."
 msgstr ""
 
 msgid "Scan complete."

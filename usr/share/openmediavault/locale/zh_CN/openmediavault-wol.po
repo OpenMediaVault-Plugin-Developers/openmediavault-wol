@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wol\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 11:41-0500\n"
+"POT-Creation-Date: 2026-05-31 01:31+0000\n"
 "PO-Revision-Date: 2014-07-21 15:36+0000\n"
 "Last-Translator: songming <by@songming.me>, 2014,2021-2022,2024\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-wol/language/zh_CN/)\n"
@@ -71,9 +71,6 @@ msgstr "关机 - ACPI状态 S5"
 
 msgid "Scan"
 msgstr "扫描"
-
-msgid "Scan ..."
-msgstr "扫描 ..."
 
 msgid "Scan complete."
 msgstr "扫描完成。"
